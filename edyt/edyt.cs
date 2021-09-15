@@ -14,11 +14,11 @@ using System.CodeDom.Compiler;
 
 using System.IO;
 
-namespace eydtApp
+namespace edytApp
 {
-    public partial class eydt : Form
+    public partial class edyt : Form
     {
-        public eydt()
+        public edyt()
         {
             InitializeComponent();
         }
@@ -98,7 +98,7 @@ namespace eydtApp
 
         private void helpToolStripButton_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/patoriko/eydtApp");
+            System.Diagnostics.Process.Start("https://github.com/patoriko/edytApp");
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace eydtApp
+namespace edytApp
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace eydtApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new eydt());
+            Application.Run(new edyt());
         }
     }
 }
