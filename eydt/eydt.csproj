@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{BBB971E7-1AD4-4ACE-A107-CD9CAB7E0041}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>textEditor</RootNamespace>
-    <AssemblyName>textEditor</AssemblyName>
+    <RootNamespace>eydtApp</RootNamespace>
+    <AssemblyName>eydtApp</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

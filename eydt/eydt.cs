@@ -14,7 +14,7 @@ using System.CodeDom.Compiler;
 
 using System.IO;
 
-namespace textEditor
+namespace eydtApp
 {
     public partial class eydt : Form
     {
@@ -98,7 +98,7 @@ namespace textEditor
 
         private void helpToolStripButton_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/patoriko/textEditor");
+            System.Diagnostics.Process.Start("https://github.com/patoriko/eydtApp");
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)

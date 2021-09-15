@@ -1,5 +1,5 @@
 ﻿
-namespace textEditor
+namespace eydtApp
 {
     partial class eydt
     {
@@ -124,7 +124,7 @@ namespace textEditor
             // 
             // newToolStripMenuItem
             // 
-            this.newToolStripMenuItem.Image = global::textEditor.Properties.Resources._new;
+            this.newToolStripMenuItem.Image = global::eydtApp.Properties.Resources._new;
             this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
@@ -134,7 +134,7 @@ namespace textEditor
             // 
             // openToolStripMenuItem
             // 
-            this.openToolStripMenuItem.Image = global::textEditor.Properties.Resources.open;
+            this.openToolStripMenuItem.Image = global::eydtApp.Properties.Resources.open;
             this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
@@ -149,7 +149,7 @@ namespace textEditor
             // 
             // saveToolStripMenuItem
             // 
-            this.saveToolStripMenuItem.Image = global::textEditor.Properties.Resources.save;
+            this.saveToolStripMenuItem.Image = global::eydtApp.Properties.Resources.save;
             this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
@@ -171,7 +171,7 @@ namespace textEditor
             // 
             // printToolStripMenuItem
             // 
-            this.printToolStripMenuItem.Image = global::textEditor.Properties.Resources.print;
+            this.printToolStripMenuItem.Image = global::eydtApp.Properties.Resources.print;
             this.printToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
             this.printToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
@@ -227,7 +227,7 @@ namespace textEditor
             // 
             // cutToolStripMenuItem
             // 
-            this.cutToolStripMenuItem.Image = global::textEditor.Properties.Resources.cut;
+            this.cutToolStripMenuItem.Image = global::eydtApp.Properties.Resources.cut;
             this.cutToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
             this.cutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
@@ -237,7 +237,7 @@ namespace textEditor
             // 
             // copyToolStripMenuItem
             // 
-            this.copyToolStripMenuItem.Image = global::textEditor.Properties.Resources.copy;
+            this.copyToolStripMenuItem.Image = global::eydtApp.Properties.Resources.copy;
             this.copyToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
             this.copyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
@@ -247,7 +247,7 @@ namespace textEditor
             // 
             // pasteToolStripMenuItem
             // 
-            this.pasteToolStripMenuItem.Image = global::textEditor.Properties.Resources.paste;
+            this.pasteToolStripMenuItem.Image = global::eydtApp.Properties.Resources.paste;
             this.pasteToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
             this.pasteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
@@ -378,7 +378,7 @@ namespace textEditor
             // 
             this.newToolStripButton.AccessibleName = "";
             this.newToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.newToolStripButton.Image = global::textEditor.Properties.Resources._new;
+            this.newToolStripButton.Image = global::eydtApp.Properties.Resources._new;
             this.newToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.newToolStripButton.Name = "newToolStripButton";
             this.newToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -388,7 +388,7 @@ namespace textEditor
             // openToolStripButton
             // 
             this.openToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.openToolStripButton.Image = global::textEditor.Properties.Resources.open;
+            this.openToolStripButton.Image = global::eydtApp.Properties.Resources.open;
             this.openToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.openToolStripButton.Name = "openToolStripButton";
             this.openToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -398,7 +398,7 @@ namespace textEditor
             // saveToolStripButton
             // 
             this.saveToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.saveToolStripButton.Image = global::textEditor.Properties.Resources.save;
+            this.saveToolStripButton.Image = global::eydtApp.Properties.Resources.save;
             this.saveToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveToolStripButton.Name = "saveToolStripButton";
             this.saveToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -408,7 +408,7 @@ namespace textEditor
             // printToolStripButton
             // 
             this.printToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.printToolStripButton.Image = global::textEditor.Properties.Resources.print;
+            this.printToolStripButton.Image = global::eydtApp.Properties.Resources.print;
             this.printToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.printToolStripButton.Name = "printToolStripButton";
             this.printToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -423,7 +423,7 @@ namespace textEditor
             // cutToolStripButton
             // 
             this.cutToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.cutToolStripButton.Image = global::textEditor.Properties.Resources.cut;
+            this.cutToolStripButton.Image = global::eydtApp.Properties.Resources.cut;
             this.cutToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.cutToolStripButton.Name = "cutToolStripButton";
             this.cutToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -433,7 +433,7 @@ namespace textEditor
             // copyToolStripButton
             // 
             this.copyToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.copyToolStripButton.Image = global::textEditor.Properties.Resources.copy;
+            this.copyToolStripButton.Image = global::eydtApp.Properties.Resources.copy;
             this.copyToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.copyToolStripButton.Name = "copyToolStripButton";
             this.copyToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -443,7 +443,7 @@ namespace textEditor
             // pasteToolStripButton
             // 
             this.pasteToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.pasteToolStripButton.Image = global::textEditor.Properties.Resources.paste;
+            this.pasteToolStripButton.Image = global::eydtApp.Properties.Resources.paste;
             this.pasteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.pasteToolStripButton.Name = "pasteToolStripButton";
             this.pasteToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -458,7 +458,7 @@ namespace textEditor
             // undoToolStripButton
             // 
             this.undoToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.undoToolStripButton.Image = global::textEditor.Properties.Resources.undo;
+            this.undoToolStripButton.Image = global::eydtApp.Properties.Resources.undo;
             this.undoToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.undoToolStripButton.Name = "undoToolStripButton";
             this.undoToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -469,7 +469,7 @@ namespace textEditor
             // redoToolStripButton
             // 
             this.redoToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.redoToolStripButton.Image = global::textEditor.Properties.Resources.redo;
+            this.redoToolStripButton.Image = global::eydtApp.Properties.Resources.redo;
             this.redoToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.redoToolStripButton.Name = "redoToolStripButton";
             this.redoToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -484,7 +484,7 @@ namespace textEditor
             // helpToolStripButton
             // 
             this.helpToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.helpToolStripButton.Image = global::textEditor.Properties.Resources.help;
+            this.helpToolStripButton.Image = global::eydtApp.Properties.Resources.help;
             this.helpToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.helpToolStripButton.Name = "helpToolStripButton";
             this.helpToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -598,7 +598,7 @@ namespace textEditor
             // 
             this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
             // 
-            // textEditor
+            // eydtApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -609,7 +609,7 @@ namespace textEditor
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
-            this.Name = "textEditor";
+            this.Name = "eydtApp";
             this.Text = "Eydt Code";
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
