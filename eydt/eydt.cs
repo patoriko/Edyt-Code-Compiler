@@ -8,20 +8,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Microsoft.CSharp;
+using System.CodeDom;
+using System.CodeDom.Compiler;
+
 using System.IO;
 
 namespace textEditor
 {
-    public partial class textEditor : Form
+    public partial class eydt : Form
     {
-        public textEditor()
+        public eydt()
         {
             InitializeComponent();
         }
 
         private void newToolStripButton_Click(object sender, EventArgs e)
         {
-            richTextBox.Clear();
+            fastColoredTextBox.Clear();
         }
 
         private void OpenDialog()
@@ -31,7 +35,7 @@ namespace textEditor
             if (of.ShowDialog() == DialogResult.OK)
             {
                 StreamReader sr = new StreamReader(of.FileName);
-                richTextBox.Text = sr.ReadToEnd();
+                fastColoredTextBox.Text = sr.ReadToEnd();
                 sr.Close();
                 this.Text = of.FileName;
             }
@@ -47,7 +51,7 @@ namespace textEditor
             try
             {
                 StreamWriter sw = new StreamWriter(this.Text);
-                sw.Write(richTextBox.Text);
+                sw.Write(fastColoredTextBox.Text);
                 sw.Close();
             }
             catch
@@ -55,35 +59,46 @@ namespace textEditor
                 OpenDialog();
             }
         }
+                 
+        private void printDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+                e.Graphics.DrawString(fastColoredTextBox.Text, new Font("Segoe UI", 14, FontStyle.Regular), Brushes.Black, new PointF(100, 100));
+        }
 
         private void printToolStripButton_Click(object sender, EventArgs e)
         {
-
+            if (printPreviewDialog.ShowDialog() == DialogResult.OK)
+                    printDocument.Print();
         }
-
+        
         private void cutToolStripButton_Click(object sender, EventArgs e)
         {
-            richTextBox.Cut();
+            fastColoredTextBox.Cut();
         }
 
         private void copyToolStripButton_Click(object sender, EventArgs e)
         {
-            richTextBox.Copy();
+            fastColoredTextBox.Copy();
         }
 
         private void pasteToolStripButton_Click(object sender, EventArgs e)
         {
-            richTextBox.Paste();
+            fastColoredTextBox.Paste();
         }
 
         private void undoToolStripButton_Click(object sender, EventArgs e)
         {
-            richTextBox.Undo();
+            fastColoredTextBox.Undo();
         }
 
         private void redoToolStripButton_Click(object sender, EventArgs e)
         {
-            richTextBox.Redo();
+            fastColoredTextBox.Redo();
+        }
+
+        private void helpToolStripButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/patoriko/textEditor");
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
@@ -93,12 +108,21 @@ namespace textEditor
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            OpenDialog();
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                StreamWriter sw = new StreamWriter(this.Text);
+                sw.Write(fastColoredTextBox.Text);
+                sw.Close();
+            }
+            catch
+            {
+                OpenDialog();
+            }
         }
 
         private void saveDialog()
@@ -109,7 +133,7 @@ namespace textEditor
             if (sf.ShowDialog() == DialogResult.OK)
             {
                 StreamWriter sr = new StreamWriter(sf.FileName);
-                sr.Write(richTextBox.Text);
+                sr.Write(fastColoredTextBox.Text);
                 sr.Close();
             }
         }
@@ -121,12 +145,8 @@ namespace textEditor
 
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void printPreviewToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
+            if (printPreviewDialog.ShowDialog() == DialogResult.OK)
+                printDocument.Print();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -159,11 +179,6 @@ namespace textEditor
             pasteToolStripButton.PerformClick();
         }
 
-        private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void lightThemeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             lightTheme();
@@ -179,29 +194,48 @@ namespace textEditor
             FontDialog fd = new FontDialog();
             if (fd.ShowDialog() == DialogResult.OK)
             {
-                richTextBox.Font = fd.Font;
+                fastColoredTextBox.Font = fd.Font;
             }
         }
 
-        private void fastColoredTextBox1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        // themes
         private void lightTheme()
         {
+            darkThemeToolStripMenuItem.Checked = false;
+            lightThemeToolStripMenuItem.Checked = true;
 
+            fileToolStripMenuItem.ForeColor = Color.Black;
+            editToolStripMenuItem.ForeColor = Color.Black;
+            toolsToolStripMenuItem.ForeColor = Color.Black;
+            helpToolStripMenuItem.ForeColor = Color.Black;
+
+            menuStrip.BackColor = SystemColors.Control;
+
+            toolStrip.BackColor = SystemColors.Control;
+
+            fastColoredTextBox.BackColor = Color.White;
+            fastColoredTextBox.ForeColor = Color.Black;
+            fastColoredTextBox.LineNumberColor = Color.Turquoise;
+            fastColoredTextBox.IndentBackColor = Color.WhiteSmoke;
         }
 
         private void darkTheme()
         {
+            lightThemeToolStripMenuItem.Checked = false;
+            darkThemeToolStripMenuItem.Checked = true;
 
-        }
+            fileToolStripMenuItem.ForeColor = Color.White;
+            editToolStripMenuItem.ForeColor = Color.White;
+            toolsToolStripMenuItem.ForeColor = Color.White;
+            helpToolStripMenuItem.ForeColor = Color.White;
 
-        private void selectAllToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
+            menuStrip.BackColor = Color.Black;
 
-        }
+            toolStrip.BackColor = Color.Black;
+
+            fastColoredTextBox.BackColor = Color.Black;
+            fastColoredTextBox.ForeColor = Color.White;
+            fastColoredTextBox.LineNumberColor = Color.Turquoise;
+            fastColoredTextBox.IndentBackColor = Color.Black;
+        }        
     }
 }

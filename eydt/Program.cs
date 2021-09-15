@@ -16,7 +16,7 @@ namespace textEditor
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new textEditor());
+            Application.Run(new eydt());
         }
     }
 }

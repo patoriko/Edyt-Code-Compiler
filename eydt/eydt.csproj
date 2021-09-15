@@ -52,11 +52,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="textEditor.cs">
+    <Compile Include="eydt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="textEditor.Designer.cs">
-      <DependentUpon>textEditor.cs</DependentUpon>
+    <Compile Include="eydt.Designer.cs">
+      <DependentUpon>eydt.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,8 +70,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="textEditor.resx">
-      <DependentUpon>textEditor.cs</DependentUpon>
+    <EmbeddedResource Include="eydt.resx">
+      <DependentUpon>eydt.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
