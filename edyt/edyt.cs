@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 using Microsoft.CSharp;
 using System.CodeDom;
@@ -18,6 +19,14 @@ namespace edytApp
 {
     public partial class edyt : Form
     {
+        #region 
+
+        public bool isSaved = true;
+
+        private string currentFile = string.Empty;
+
+        #endregion
+
         public edyt()
         {
             InitializeComponent();
@@ -25,7 +34,15 @@ namespace edytApp
 
         private void newToolStripButton_Click(object sender, EventArgs e)
         {
-            fastColoredTextBox.Clear();
+            if (fastColoredTextBox.Text != string.Empty)
+            {
+                if ((DialogResult.OK == MessageBox.Show("This file will be lost", "continue?", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)))
+                {
+                    currentFile = string.Empty;
+
+                    fastColoredTextBox.Text = string.Empty;
+                }
+            }
         }
 
         private void OpenDialog()
@@ -37,7 +54,7 @@ namespace edytApp
                 StreamReader sr = new StreamReader(of.FileName);
                 fastColoredTextBox.Text = sr.ReadToEnd();
                 sr.Close();
-                this.Text = of.FileName;
+                this.Text = of.FileName + " - Edyt";
             }
         }
 
@@ -59,18 +76,18 @@ namespace edytApp
                 OpenDialog();
             }
         }
-                 
+
         private void printDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-                e.Graphics.DrawString(fastColoredTextBox.Text, new Font("Segoe UI", 14, FontStyle.Regular), Brushes.Black, new PointF(100, 100));
+            e.Graphics.DrawString(fastColoredTextBox.Text, new Font("Segoe UI", 14, FontStyle.Regular), Brushes.Black, new PointF(100, 100));
         }
 
         private void printToolStripButton_Click(object sender, EventArgs e)
         {
             if (printPreviewDialog.ShowDialog() == DialogResult.OK)
-                    printDocument.Print();
+                printDocument.Print();
         }
-        
+
         private void cutToolStripButton_Click(object sender, EventArgs e)
         {
             fastColoredTextBox.Cut();
@@ -98,7 +115,7 @@ namespace edytApp
 
         private void helpToolStripButton_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/patoriko/edytApp");
+            System.Diagnostics.Process.Start("https://github.com/patoriko/Edyt-Code-Compiler");
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
@@ -112,29 +129,34 @@ namespace edytApp
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        {            
             try
             {
+                isSaved = true;
                 StreamWriter sw = new StreamWriter(this.Text);
                 sw.Write(fastColoredTextBox.Text);
                 sw.Close();
             }
             catch
             {
-                OpenDialog();
+                isSaved = false;
+                saveDialog();
             }
+                
+            
         }
 
         private void saveDialog()
         {
             SaveFileDialog sf = new SaveFileDialog();
             sf.Filter = "Text File|*.txt|Any File|*.*";
-
             if (sf.ShowDialog() == DialogResult.OK)
             {
+                isSaved = true;
+                this.Text = sf.FileName + " - Edyt";
                 StreamWriter sr = new StreamWriter(sf.FileName);
                 sr.Write(fastColoredTextBox.Text);
-                sr.Close();
+                sr.Close(); 
             }
         }
 
@@ -198,6 +220,81 @@ namespace edytApp
             }
         }
 
+        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("error");
+        }
+
+        private void findToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox.ShowFindDialog();
+        }
+
+        private void replaceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox.ShowReplaceDialog();
+        }
+
+        private void goToToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox.ShowGoToDialog();
+        }
+
+        private void runToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.HTML) 
+            {
+                codePreview h = new codePreview(fastColoredTextBox.Text);
+                h.Show();
+            }
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.PHP)
+            {
+                codePreview p = new codePreview(fastColoredTextBox.Text);
+                p.Show();
+            }
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.CSharp) 
+            {
+                SaveFileDialog sf = new SaveFileDialog();
+                sf.Filter = "Executable File|*.exe";
+                string OutPath = "?.exe";
+                if (sf.ShowDialog() == DialogResult.OK)
+                {
+                    OutPath = sf.FileName;
+                }
+
+                CSharpCodeProvider codeProvider = new CSharpCodeProvider();
+                CompilerParameters parameters = new CompilerParameters(new string[] { "System.dll" });
+                parameters.GenerateExecutable = true;
+                parameters.OutputAssembly = OutPath;
+                string[] sources = { fastColoredTextBox.Text };
+
+                CompilerResults results = codeProvider.CompileAssemblyFromSource(parameters, sources);
+
+                if (results.Errors.Count > 0)
+                {
+                    string errsText = "";
+                    foreach (CompilerError CompErr in results.Errors)
+                    {
+                        errsText = "(" + CompErr.ErrorNumber +
+                                    ")Line " + CompErr.Line +
+                                    ",Column " + CompErr.Column +
+                                    ":" + CompErr.ErrorText + "" +
+                                    Environment.NewLine;
+                    }
+
+                    MessageBox.Show(errsText, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    System.Diagnostics.Process.Start(OutPath);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Cannot run this file");
+            }
+        }
+
         private void lightTheme()
         {
             darkThemeToolStripMenuItem.Checked = false;
@@ -236,6 +333,60 @@ namespace edytApp
             fastColoredTextBox.ForeColor = Color.White;
             fastColoredTextBox.LineNumberColor = Color.Turquoise;
             fastColoredTextBox.IndentBackColor = Color.Black;
-        }        
+        }
+
+        private void fastColoredTextBox_TextChanged(object sender, FastColoredTextBoxNS.TextChangedEventArgs e)
+        {
+            isSaved = false;
+        }
+
+        private void edyt_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (isSaved == false)
+            {
+                if (MessageBox.Show("Changes were not saved. Exit?", "Warning", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                    e.Cancel = true;
+            }
+        }
+
+        private void edyt_Load(object sender, EventArgs e)
+        {
+            if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.HTML)
+            {
+                this.languageLabel.Text = "HTML";
+            }
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.PHP)
+            {
+                this.languageLabel.Text = "PHP";
+            }
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.CSharp)
+            {
+                this.languageLabel.Text = "C#";
+            }
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.JS)
+            {
+                this.languageLabel.Text = "JavaScript";
+            }
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.Lua)
+            {
+                this.languageLabel.Text = "Lua";
+            }
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.SQL)
+            {
+                this.languageLabel.Text = "SQL";
+            }
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.VB)
+            {
+                this.languageLabel.Text = "VisualBasic";
+            }
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.XML)
+            {
+                this.languageLabel.Text = "XML";
+            }
+            else
+            {
+                this.languageLabel.Text = "Custom";
+            }
+        }
     }
 }

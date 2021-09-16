@@ -58,8 +58,17 @@
     <Compile Include="edyt.Designer.cs">
       <DependentUpon>edyt.cs</DependentUpon>
     </Compile>
+    <Compile Include="codePreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="codePreview.Designer.cs">
+      <DependentUpon>codePreview.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="codePreview.resx">
+      <DependentUpon>codePreview.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -89,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
+    <Content Include="Properties\Icons\browser.ico" />
     <Content Include="Properties\Icons\copy.ico" />
     <Content Include="Properties\Icons\cut.ico" />
     <Content Include="Properties\Icons\help.ico" />
@@ -99,6 +109,7 @@
     <Content Include="Properties\Icons\preview.ico" />
     <Content Include="Properties\Icons\print.ico" />
     <Content Include="Properties\Icons\redo.ico" />
+    <Content Include="Properties\Icons\refresh.ico" />
     <Content Include="Properties\Icons\save.ico" />
     <Content Include="Properties\Icons\undo.ico" />
   </ItemGroup>
