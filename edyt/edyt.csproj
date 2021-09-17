@@ -99,6 +99,7 @@
   <ItemGroup>
     <Content Include="logo.ico" />
     <Content Include="Properties\Icons\browser.ico" />
+    <Content Include="Properties\Icons\cancel.ico" />
     <Content Include="Properties\Icons\copy.ico" />
     <Content Include="Properties\Icons\cut.ico" />
     <Content Include="Properties\Icons\help.ico" />
