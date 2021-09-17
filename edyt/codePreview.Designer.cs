@@ -38,15 +38,17 @@ namespace edytApp
             this.browserButton = new System.Windows.Forms.ToolStripButton();
             this.printButton = new System.Windows.Forms.ToolStripButton();
             this.helpButton = new System.Windows.Forms.ToolStripButton();
+            this.closeButton = new System.Windows.Forms.ToolStripButton();
             this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // webBrowser
             // 
-            this.webBrowser.Location = new System.Drawing.Point(129, 93);
+            this.webBrowser.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.webBrowser.Location = new System.Drawing.Point(0, 28);
             this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser.Name = "webBrowser";
-            this.webBrowser.Size = new System.Drawing.Size(960, 540);
+            this.webBrowser.Size = new System.Drawing.Size(1264, 653);
             this.webBrowser.TabIndex = 0;
             // 
             // toolStrip
@@ -58,7 +60,8 @@ namespace edytApp
             this.browserButton,
             this.printButton,
             this.toolStripSeparator1,
-            this.helpButton});
+            this.helpButton,
+            this.closeButton});
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Size = new System.Drawing.Size(1264, 25);
@@ -120,6 +123,17 @@ namespace edytApp
             this.helpButton.Text = "He&lp";
             this.helpButton.Click += new System.EventHandler(this.helpToolStripButton_Click);
             // 
+            // closeButton
+            // 
+            this.closeButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.closeButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.closeButton.Image = global::edytApp.Properties.Resources.cancel;
+            this.closeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(23, 22);
+            this.closeButton.Text = "close";
+            this.closeButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
             // codePreview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,6 +142,7 @@ namespace edytApp
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.webBrowser);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "codePreview";
             this.Text = "Edyt - Web Preview";
@@ -148,5 +163,6 @@ namespace edytApp
         private System.Windows.Forms.ToolStripButton printButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton browserButton;
+        private System.Windows.Forms.ToolStripButton closeButton;
     }
 }

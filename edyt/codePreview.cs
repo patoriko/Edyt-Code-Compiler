@@ -41,6 +41,11 @@ namespace edytApp
         private void helpToolStripButton_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/patoriko/Edyt-Code-Compiler");
-        }    
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
