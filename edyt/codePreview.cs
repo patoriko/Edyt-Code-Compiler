@@ -47,5 +47,20 @@ namespace edytApp
         {
             this.Close();
         }
+
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void inspectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void webBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
+        }
     }
 }

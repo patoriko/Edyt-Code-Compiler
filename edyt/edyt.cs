@@ -344,7 +344,7 @@ namespace edytApp
         {
             if (isSaved == false)
             {
-                if (MessageBox.Show("Changes were not saved. Exit?", "Warning", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                if  (MessageBox.Show("You have unsaved changes, discard file?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.Cancel)
                     e.Cancel = true;
             }
         }

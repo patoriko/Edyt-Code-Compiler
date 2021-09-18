@@ -1,5 +1,4 @@
-﻿
-namespace edytApp
+﻿namespace edytApp
 {
     partial class edyt
     {
@@ -556,13 +555,13 @@ namespace edytApp
         '\"',
         '\'',
         '\''};
-            this.fastColoredTextBox.AutoIndentCharsPatterns = "\r\n^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>[^;]+);\r\n^\\s*(case|default)\\s*[^:]" +
-    "*(?<range>:)\\s*(?<range>[^;]+);\r\n";
+            this.fastColoredTextBox.AutoIndentCharsPatterns = "";
             this.fastColoredTextBox.AutoScrollMinSize = new System.Drawing.Size(0, 17);
             this.fastColoredTextBox.BackBrush = null;
             this.fastColoredTextBox.BracketsHighlightStrategy = FastColoredTextBoxNS.BracketsHighlightStrategy.Strategy2;
             this.fastColoredTextBox.CharHeight = 17;
             this.fastColoredTextBox.CharWidth = 8;
+            this.fastColoredTextBox.CommentPrefix = null;
             this.fastColoredTextBox.ContextMenuStrip = this.contextMenuStrip;
             this.fastColoredTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.fastColoredTextBox.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
@@ -570,13 +569,13 @@ namespace edytApp
             this.fastColoredTextBox.Font = new System.Drawing.Font("Roboto Mono", 9.75F);
             this.fastColoredTextBox.IsReplaceMode = false;
             this.fastColoredTextBox.Language = FastColoredTextBoxNS.Language.HTML;
-            this.fastColoredTextBox.LeftBracket = '(';
-            this.fastColoredTextBox.LeftBracket2 = '{';
+            this.fastColoredTextBox.LeftBracket = '<';
+            this.fastColoredTextBox.LeftBracket2 = '(';
             this.fastColoredTextBox.Location = new System.Drawing.Point(0, 49);
             this.fastColoredTextBox.Name = "fastColoredTextBox";
             this.fastColoredTextBox.Paddings = new System.Windows.Forms.Padding(0);
-            this.fastColoredTextBox.RightBracket = ')';
-            this.fastColoredTextBox.RightBracket2 = '}';
+            this.fastColoredTextBox.RightBracket = '>';
+            this.fastColoredTextBox.RightBracket2 = ')';
             this.fastColoredTextBox.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.fastColoredTextBox.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("fastColoredTextBox.ServiceColors")));
             this.fastColoredTextBox.Size = new System.Drawing.Size(800, 401);
@@ -755,7 +754,7 @@ namespace edytApp
         private System.Windows.Forms.ToolStripMenuItem themeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lightThemeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem darkThemeToolStripMenuItem;
-        private FastColoredTextBoxNS.FastColoredTextBox fastColoredTextBox;
+        public FastColoredTextBoxNS.FastColoredTextBox fastColoredTextBox;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem1;

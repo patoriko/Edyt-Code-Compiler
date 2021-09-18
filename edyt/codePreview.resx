@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="contextMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>115, 17</value>
+  </metadata>
   <metadata name="toolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -124,20 +127,20 @@
   <data name="refreshButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        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
 </value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

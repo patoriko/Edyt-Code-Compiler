@@ -29,21 +29,27 @@ namespace edytApp
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(codePreview));
             this.webBrowser = new System.Windows.Forms.WebBrowser();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.refreshButton = new System.Windows.Forms.ToolStripButton();
             this.openButton = new System.Windows.Forms.ToolStripButton();
             this.browserButton = new System.Windows.Forms.ToolStripButton();
             this.printButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.helpButton = new System.Windows.Forms.ToolStripButton();
             this.closeButton = new System.Windows.Forms.ToolStripButton();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inspectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip.SuspendLayout();
+            this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // webBrowser
             // 
+            this.webBrowser.ContextMenuStrip = this.contextMenuStrip;
             this.webBrowser.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.webBrowser.Location = new System.Drawing.Point(0, 28);
             this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
@@ -67,11 +73,6 @@ namespace edytApp
             this.toolStrip.Size = new System.Drawing.Size(1264, 25);
             this.toolStrip.TabIndex = 2;
             this.toolStrip.Text = "toolStrip";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // refreshButton
             // 
@@ -113,6 +114,11 @@ namespace edytApp
             this.printButton.Text = "&Print";
             this.printButton.Click += new System.EventHandler(this.printToolStripButton_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
             // helpButton
             // 
             this.helpButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -134,6 +140,28 @@ namespace edytApp
             this.closeButton.Text = "close";
             this.closeButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.refreshToolStripMenuItem,
+            this.inspectToolStripMenuItem});
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.Size = new System.Drawing.Size(114, 48);
+            // 
+            // refreshToolStripMenuItem
+            // 
+            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.refreshToolStripMenuItem.Text = "Refresh";
+            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
+            // 
+            // inspectToolStripMenuItem
+            // 
+            this.inspectToolStripMenuItem.Name = "inspectToolStripMenuItem";
+            this.inspectToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.inspectToolStripMenuItem.Text = "Inspect";
+            this.inspectToolStripMenuItem.Click += new System.EventHandler(this.inspectToolStripMenuItem_Click);
+            // 
             // codePreview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -148,6 +176,7 @@ namespace edytApp
             this.Text = "Edyt - Web Preview";
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
+            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,5 +193,8 @@ namespace edytApp
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton browserButton;
         private System.Windows.Forms.ToolStripButton closeButton;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inspectToolStripMenuItem;
     }
 }
