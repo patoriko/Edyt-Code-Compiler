@@ -51,4 +51,14 @@ present in the app will still be made, as Edyt trys to become an alternative to 
 For documentation on the features and options in Edyt, view the [Edyt Code Documentation](https://github.com/patoriko/Edyt-Code-Compiler/wiki). And 
 use [issues](https://github.com/patoriko/Edyt-Code-Compiler/issues) to report any problems when using Edyt, or contact me at patrick@taylor.to.
 
+# Upcoming Improvements
+<ul>
+  <li>Optimisation of code</li>
+  <br>
+  <li>More syntax higlighting</li>
+  <br>
+  <li>More compiling options</li>
+  <br>
+  <li>Custom theme creator</li>
+</ul>
 ---
