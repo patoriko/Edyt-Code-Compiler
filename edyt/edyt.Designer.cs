@@ -54,7 +54,16 @@
             this.lightThemeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darkThemeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.languagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.csToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.visualBasicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.javaScriptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.htmlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.phpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xmlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.luaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sqlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.replaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -268,7 +277,7 @@
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.customizeToolStripMenuItem,
-            this.optionsToolStripMenuItem,
+            this.languagesToolStripMenuItem,
             this.toolStripMenuItem3,
             this.findToolStripMenuItem,
             this.replaceToolStripMenuItem,
@@ -283,7 +292,7 @@
             this.themeToolStripMenuItem,
             this.fontToolStripMenuItem});
             this.customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.customizeToolStripMenuItem.Text = "&Customize";
             // 
             // themeToolStripMenuItem
@@ -318,23 +327,106 @@
             this.fontToolStripMenuItem.Text = "Font";
             this.fontToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
             // 
-            // optionsToolStripMenuItem
+            // languagesToolStripMenuItem
             // 
-            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.optionsToolStripMenuItem.Text = "&Options";
-            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
+            this.languagesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.csToolStripMenuItem,
+            this.visualBasicToolStripMenuItem,
+            this.javaScriptToolStripMenuItem,
+            this.htmlToolStripMenuItem,
+            this.phpToolStripMenuItem,
+            this.xmlToolStripMenuItem,
+            this.luaToolStripMenuItem,
+            this.sqlToolStripMenuItem,
+            this.customToolStripMenuItem});
+            this.languagesToolStripMenuItem.Name = "languagesToolStripMenuItem";
+            this.languagesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.languagesToolStripMenuItem.Text = "&Languages";
+            // 
+            // csToolStripMenuItem
+            // 
+            this.csToolStripMenuItem.Checked = true;
+            this.csToolStripMenuItem.CheckOnClick = true;
+            this.csToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.csToolStripMenuItem.Name = "csToolStripMenuItem";
+            this.csToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.csToolStripMenuItem.Text = "C#";
+            this.csToolStripMenuItem.Click += new System.EventHandler(this.csToolStripMenuItem_Click);
+            // 
+            // visualBasicToolStripMenuItem
+            // 
+            this.visualBasicToolStripMenuItem.CheckOnClick = true;
+            this.visualBasicToolStripMenuItem.Name = "visualBasicToolStripMenuItem";
+            this.visualBasicToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.visualBasicToolStripMenuItem.Text = "Visual Basic";
+            this.visualBasicToolStripMenuItem.Click += new System.EventHandler(this.visualBasicToolStripMenuItem_Click);
+            // 
+            // javaScriptToolStripMenuItem
+            // 
+            this.javaScriptToolStripMenuItem.CheckOnClick = true;
+            this.javaScriptToolStripMenuItem.Name = "javaScriptToolStripMenuItem";
+            this.javaScriptToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.javaScriptToolStripMenuItem.Text = "JavaScript";
+            this.javaScriptToolStripMenuItem.Click += new System.EventHandler(this.javaScriptToolStripMenuItem_Click);
+            // 
+            // htmlToolStripMenuItem
+            // 
+            this.htmlToolStripMenuItem.CheckOnClick = true;
+            this.htmlToolStripMenuItem.Name = "htmlToolStripMenuItem";
+            this.htmlToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.htmlToolStripMenuItem.Text = "HTML";
+            this.htmlToolStripMenuItem.Click += new System.EventHandler(this.htmlToolStripMenuItem_Click);
+            // 
+            // phpToolStripMenuItem
+            // 
+            this.phpToolStripMenuItem.CheckOnClick = true;
+            this.phpToolStripMenuItem.Name = "phpToolStripMenuItem";
+            this.phpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.phpToolStripMenuItem.Text = "PHP";
+            this.phpToolStripMenuItem.Click += new System.EventHandler(this.phpToolStripMenuItem_Click);
+            // 
+            // xmlToolStripMenuItem
+            // 
+            this.xmlToolStripMenuItem.CheckOnClick = true;
+            this.xmlToolStripMenuItem.Name = "xmlToolStripMenuItem";
+            this.xmlToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.xmlToolStripMenuItem.Text = "XML";
+            this.xmlToolStripMenuItem.Click += new System.EventHandler(this.xmlToolStripMenuItem_Click);
+            // 
+            // luaToolStripMenuItem
+            // 
+            this.luaToolStripMenuItem.CheckOnClick = true;
+            this.luaToolStripMenuItem.Name = "luaToolStripMenuItem";
+            this.luaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.luaToolStripMenuItem.Text = "Lua";
+            this.luaToolStripMenuItem.Click += new System.EventHandler(this.luaToolStripMenuItem_Click);
+            // 
+            // sqlToolStripMenuItem
+            // 
+            this.sqlToolStripMenuItem.CheckOnClick = true;
+            this.sqlToolStripMenuItem.Name = "sqlToolStripMenuItem";
+            this.sqlToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sqlToolStripMenuItem.Text = "SQL";
+            this.sqlToolStripMenuItem.Click += new System.EventHandler(this.sqlToolStripMenuItem_Click);
+            // 
+            // customToolStripMenuItem
+            // 
+            this.customToolStripMenuItem.CheckOnClick = true;
+            this.customToolStripMenuItem.Name = "customToolStripMenuItem";
+            this.customToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.customToolStripMenuItem.Text = "Custom";
+            this.customToolStripMenuItem.Click += new System.EventHandler(this.customToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(155, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(177, 6);
             // 
             // findToolStripMenuItem
             // 
             this.findToolStripMenuItem.Name = "findToolStripMenuItem";
             this.findToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.findToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.findToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.findToolStripMenuItem.Text = "Find";
             this.findToolStripMenuItem.Click += new System.EventHandler(this.findToolStripMenuItem_Click);
             // 
@@ -342,7 +434,7 @@
             // 
             this.replaceToolStripMenuItem.Name = "replaceToolStripMenuItem";
             this.replaceToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
-            this.replaceToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.replaceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.replaceToolStripMenuItem.Text = "Replace";
             this.replaceToolStripMenuItem.Click += new System.EventHandler(this.replaceToolStripMenuItem_Click);
             // 
@@ -350,7 +442,7 @@
             // 
             this.goToToolStripMenuItem.Name = "goToToolStripMenuItem";
             this.goToToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
-            this.goToToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.goToToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.goToToolStripMenuItem.Text = "Go to...";
             this.goToToolStripMenuItem.Click += new System.EventHandler(this.goToToolStripMenuItem_Click);
             // 
@@ -555,27 +647,29 @@
         '\"',
         '\'',
         '\''};
-            this.fastColoredTextBox.AutoIndentCharsPatterns = "";
+            this.fastColoredTextBox.AutoIndentCharsPatterns = "\r\n^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>[^;]+);\r\n^\\s*(case|default)\\s*[^:]" +
+    "*(?<range>:)\\s*(?<range>[^;]+);\r\n";
             this.fastColoredTextBox.AutoScrollMinSize = new System.Drawing.Size(0, 17);
             this.fastColoredTextBox.BackBrush = null;
             this.fastColoredTextBox.BracketsHighlightStrategy = FastColoredTextBoxNS.BracketsHighlightStrategy.Strategy2;
             this.fastColoredTextBox.CharHeight = 17;
             this.fastColoredTextBox.CharWidth = 8;
-            this.fastColoredTextBox.CommentPrefix = null;
             this.fastColoredTextBox.ContextMenuStrip = this.contextMenuStrip;
             this.fastColoredTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.fastColoredTextBox.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.fastColoredTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fastColoredTextBox.Font = new System.Drawing.Font("Roboto Mono", 9.75F);
+            this.fastColoredTextBox.IndentBackColor = System.Drawing.SystemColors.Control;
             this.fastColoredTextBox.IsReplaceMode = false;
-            this.fastColoredTextBox.Language = FastColoredTextBoxNS.Language.HTML;
-            this.fastColoredTextBox.LeftBracket = '<';
-            this.fastColoredTextBox.LeftBracket2 = '(';
+            this.fastColoredTextBox.Language = FastColoredTextBoxNS.Language.CSharp;
+            this.fastColoredTextBox.LeftBracket = '(';
+            this.fastColoredTextBox.LeftBracket2 = '{';
+            this.fastColoredTextBox.LineNumberColor = System.Drawing.Color.SlateBlue;
             this.fastColoredTextBox.Location = new System.Drawing.Point(0, 49);
             this.fastColoredTextBox.Name = "fastColoredTextBox";
             this.fastColoredTextBox.Paddings = new System.Windows.Forms.Padding(0);
-            this.fastColoredTextBox.RightBracket = '>';
-            this.fastColoredTextBox.RightBracket2 = ')';
+            this.fastColoredTextBox.RightBracket = ')';
+            this.fastColoredTextBox.RightBracket2 = '}';
             this.fastColoredTextBox.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.fastColoredTextBox.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("fastColoredTextBox.ServiceColors")));
             this.fastColoredTextBox.Size = new System.Drawing.Size(800, 401);
@@ -729,7 +823,7 @@
         private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customizeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem languagesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem contentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem indexToolStripMenuItem;
@@ -773,6 +867,15 @@
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel positionStatusStripLabel;
         private System.Windows.Forms.ToolStripStatusLabel languageLabel;
+        private System.Windows.Forms.ToolStripMenuItem csToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem visualBasicToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem javaScriptToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem htmlToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem phpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xmlToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem luaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sqlToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem customToolStripMenuItem;
     }
 }
 

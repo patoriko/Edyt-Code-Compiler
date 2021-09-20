@@ -201,6 +201,51 @@ namespace edytApp
             pasteToolStripButton.PerformClick();
         }
 
+        private void csToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cSharp();
+        }
+
+        private void visualBasicToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            visualBasic();
+        }
+
+        private void javaScriptToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            javaScript();
+        }
+
+        private void htmlToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            html();
+        }
+
+        private void phpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            php();
+        }
+
+        private void xmlToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            xml();
+        }
+
+        private void luaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lua();
+        }
+
+        private void sqlToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sql();
+        }
+
+        private void customToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            custom();
+        }
+
         private void lightThemeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             lightTheme();
@@ -218,11 +263,6 @@ namespace edytApp
             {
                 fastColoredTextBox.Font = fd.Font;
             }
-        }
-
-        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("error");
         }
 
         private void findToolStripMenuItem_Click(object sender, EventArgs e)
@@ -295,6 +335,156 @@ namespace edytApp
             }
         }
 
+        # region Languages
+
+        private void cSharp()
+        {
+            csToolStripMenuItem.Checked = true;
+            visualBasicToolStripMenuItem.Checked = false;
+            javaScriptToolStripMenuItem.Checked = false;
+            htmlToolStripMenuItem.Checked = false;
+            phpToolStripMenuItem.Checked = false;
+            xmlToolStripMenuItem.Checked = false;
+            luaToolStripMenuItem.Checked = false;
+            sqlToolStripMenuItem.Checked = false;
+            customToolStripMenuItem.Checked = false;
+
+            fastColoredTextBox.Language = FastColoredTextBoxNS.Language.CSharp;
+            languageCheck();
+        }
+
+        private void visualBasic()
+        {
+            csToolStripMenuItem.Checked = false;
+            visualBasicToolStripMenuItem.Checked = true;
+            javaScriptToolStripMenuItem.Checked = false;
+            htmlToolStripMenuItem.Checked = false;
+            phpToolStripMenuItem.Checked = false;
+            xmlToolStripMenuItem.Checked = false;
+            luaToolStripMenuItem.Checked = false;
+            sqlToolStripMenuItem.Checked = false;
+            customToolStripMenuItem.Checked = false;
+
+            fastColoredTextBox.Language = FastColoredTextBoxNS.Language.VB;
+            languageCheck();
+        }
+
+        private void javaScript()
+        {
+            csToolStripMenuItem.Checked = false;
+            visualBasicToolStripMenuItem.Checked = false;
+            javaScriptToolStripMenuItem.Checked = true;
+            htmlToolStripMenuItem.Checked = false;
+            phpToolStripMenuItem.Checked = false;
+            xmlToolStripMenuItem.Checked = false;
+            luaToolStripMenuItem.Checked = false;
+            sqlToolStripMenuItem.Checked = false;
+            customToolStripMenuItem.Checked = false;
+
+            fastColoredTextBox.Language = FastColoredTextBoxNS.Language.JS;
+            languageCheck();
+        }
+
+        private void html()
+        {
+            csToolStripMenuItem.Checked = false;
+            visualBasicToolStripMenuItem.Checked = false;
+            javaScriptToolStripMenuItem.Checked = false;
+            htmlToolStripMenuItem.Checked = true;
+            phpToolStripMenuItem.Checked = false;
+            xmlToolStripMenuItem.Checked = false;
+            luaToolStripMenuItem.Checked = false;
+            sqlToolStripMenuItem.Checked = false;
+            customToolStripMenuItem.Checked = false;
+
+            fastColoredTextBox.Language = FastColoredTextBoxNS.Language.HTML;
+            languageCheck();
+        }
+
+        private void php()
+        {
+            csToolStripMenuItem.Checked = false;
+            visualBasicToolStripMenuItem.Checked = false;
+            javaScriptToolStripMenuItem.Checked = false;
+            htmlToolStripMenuItem.Checked = false;
+            phpToolStripMenuItem.Checked = true;
+            xmlToolStripMenuItem.Checked = false;
+            luaToolStripMenuItem.Checked = false;
+            sqlToolStripMenuItem.Checked = false;
+            customToolStripMenuItem.Checked = false;
+
+            fastColoredTextBox.Language = FastColoredTextBoxNS.Language.PHP;
+            languageCheck();
+        }
+
+        private void xml()
+        {
+            csToolStripMenuItem.Checked = false;
+            visualBasicToolStripMenuItem.Checked = false;
+            javaScriptToolStripMenuItem.Checked = false;
+            htmlToolStripMenuItem.Checked = false;
+            phpToolStripMenuItem.Checked = false;
+            xmlToolStripMenuItem.Checked = true;
+            luaToolStripMenuItem.Checked = false;
+            sqlToolStripMenuItem.Checked = false;
+            customToolStripMenuItem.Checked = false;
+
+            fastColoredTextBox.Language = FastColoredTextBoxNS.Language.XML;
+            languageCheck();
+        }
+
+        private void lua()
+        {
+            csToolStripMenuItem.Checked = false;
+            visualBasicToolStripMenuItem.Checked = false;
+            javaScriptToolStripMenuItem.Checked = false;
+            htmlToolStripMenuItem.Checked = false;
+            phpToolStripMenuItem.Checked = false;
+            xmlToolStripMenuItem.Checked = false;
+            luaToolStripMenuItem.Checked = true;
+            sqlToolStripMenuItem.Checked = false;
+            customToolStripMenuItem.Checked = false;
+
+            fastColoredTextBox.Language = FastColoredTextBoxNS.Language.Lua;
+            languageCheck();
+        }
+
+        private void sql()
+        {
+            csToolStripMenuItem.Checked = false;
+            visualBasicToolStripMenuItem.Checked = false;
+            javaScriptToolStripMenuItem.Checked = false;
+            htmlToolStripMenuItem.Checked = false;
+            phpToolStripMenuItem.Checked = false;
+            xmlToolStripMenuItem.Checked = false;
+            luaToolStripMenuItem.Checked = false;
+            sqlToolStripMenuItem.Checked = true;
+            customToolStripMenuItem.Checked = false;
+
+            fastColoredTextBox.Language = FastColoredTextBoxNS.Language.SQL;
+            languageCheck();
+        }
+
+        private void custom()
+        {
+            csToolStripMenuItem.Checked = false;
+            visualBasicToolStripMenuItem.Checked = false;
+            javaScriptToolStripMenuItem.Checked = false;
+            htmlToolStripMenuItem.Checked = false;
+            phpToolStripMenuItem.Checked = false;
+            xmlToolStripMenuItem.Checked = false;
+            luaToolStripMenuItem.Checked = false;
+            sqlToolStripMenuItem.Checked = false;
+            customToolStripMenuItem.Checked = true;
+
+            fastColoredTextBox.Language = FastColoredTextBoxNS.Language.Custom;
+            languageCheck();
+        }
+
+        #endregion
+
+        #region Themes
+
         private void lightTheme()
         {
             darkThemeToolStripMenuItem.Checked = false;
@@ -335,23 +525,23 @@ namespace edytApp
             fastColoredTextBox.IndentBackColor = Color.Black;
         }
 
-        private void fastColoredTextBox_TextChanged(object sender, FastColoredTextBoxNS.TextChangedEventArgs e)
-        {
-            isSaved = false;
-        }
+        #endregion
 
-        private void edyt_FormClosing(object sender, FormClosingEventArgs e)
+        private void languageCheck()
         {
-            if (isSaved == false)
+            if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.CSharp)
             {
-                if  (MessageBox.Show("You have unsaved changes, discard file?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.Cancel)
-                    e.Cancel = true;
+                this.languageLabel.Text = "C#";
             }
-        }
-
-        private void edyt_Load(object sender, EventArgs e)
-        {
-            if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.HTML)
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.VB)
+            {
+                this.languageLabel.Text = "VisualBasic";
+            }
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.JS)
+            {
+                this.languageLabel.Text = "JavaScript";
+            }
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.HTML)
             {
                 this.languageLabel.Text = "HTML";
             }
@@ -359,13 +549,9 @@ namespace edytApp
             {
                 this.languageLabel.Text = "PHP";
             }
-            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.CSharp)
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.XML)
             {
-                this.languageLabel.Text = "C#";
-            }
-            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.JS)
-            {
-                this.languageLabel.Text = "JavaScript";
+                this.languageLabel.Text = "XML";
             }
             else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.Lua)
             {
@@ -375,17 +561,28 @@ namespace edytApp
             {
                 this.languageLabel.Text = "SQL";
             }
-            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.VB)
-            {
-                this.languageLabel.Text = "VisualBasic";
-            }
-            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.XML)
-            {
-                this.languageLabel.Text = "XML";
-            }
             else
             {
                 this.languageLabel.Text = "Custom";
+            }
+        }
+
+        private void edyt_Load(object sender, EventArgs e)
+        {
+            languageCheck();
+        }
+
+        private void fastColoredTextBox_TextChanged(object sender, FastColoredTextBoxNS.TextChangedEventArgs e)
+        {
+            isSaved = false;
+        }
+
+        private void edyt_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (isSaved == false)
+            {
+                if (MessageBox.Show("You have unsaved changes, discard file?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.Cancel)
+                    e.Cancel = true;
             }
         }
     }
