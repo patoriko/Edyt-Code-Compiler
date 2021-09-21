@@ -70,6 +70,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="codePreview.resx">
       <DependentUpon>codePreview.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -99,22 +100,23 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Data\settings.xml" />
+    <Content Include="Resources\Data\themes.xml" />
+    <Content Include="Resources\Icons\browser.ico" />
+    <Content Include="Resources\Icons\cancel.ico" />
+    <Content Include="Resources\Icons\copy.ico" />
+    <Content Include="Resources\Icons\cut.ico" />
+    <Content Include="Resources\Icons\help.ico" />
     <Content Include="logo.ico" />
-    <Content Include="Properties\Icons\browser.ico" />
-    <Content Include="Properties\Icons\cancel.ico" />
-    <Content Include="Properties\Icons\copy.ico" />
-    <Content Include="Properties\Icons\cut.ico" />
-    <Content Include="Properties\Icons\help.ico" />
-    <Content Include="Properties\Icons\logo.ico" />
-    <Content Include="Properties\Icons\new.ico" />
-    <Content Include="Properties\Icons\open.ico" />
-    <Content Include="Properties\Icons\paste.ico" />
-    <Content Include="Properties\Icons\preview.ico" />
-    <Content Include="Properties\Icons\print.ico" />
-    <Content Include="Properties\Icons\redo.ico" />
-    <Content Include="Properties\Icons\refresh.ico" />
-    <Content Include="Properties\Icons\save.ico" />
-    <Content Include="Properties\Icons\undo.ico" />
+    <Content Include="Resources\Icons\new.ico" />
+    <Content Include="Resources\Icons\open.ico" />
+    <Content Include="Resources\Icons\paste.ico" />
+    <Content Include="Resources\Icons\preview.ico" />
+    <Content Include="Resources\Icons\print.ico" />
+    <Content Include="Resources\Icons\redo.ico" />
+    <Content Include="Resources\Icons\refresh.ico" />
+    <Content Include="Resources\Icons\save.ico" />
+    <Content Include="Resources\Icons\undo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -32,6 +32,9 @@ namespace edytApp
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(codePreview));
             this.webBrowser = new System.Windows.Forms.WebBrowser();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inspectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.refreshButton = new System.Windows.Forms.ToolStripButton();
             this.openButton = new System.Windows.Forms.ToolStripButton();
@@ -40,11 +43,8 @@ namespace edytApp
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.helpButton = new System.Windows.Forms.ToolStripButton();
             this.closeButton = new System.Windows.Forms.ToolStripButton();
-            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.inspectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
+            this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // webBrowser
@@ -56,6 +56,28 @@ namespace edytApp
             this.webBrowser.Name = "webBrowser";
             this.webBrowser.Size = new System.Drawing.Size(1264, 653);
             this.webBrowser.TabIndex = 0;
+            // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.refreshToolStripMenuItem,
+            this.inspectToolStripMenuItem});
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.Size = new System.Drawing.Size(114, 48);
+            // 
+            // refreshToolStripMenuItem
+            // 
+            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.refreshToolStripMenuItem.Text = "Refresh";
+            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
+            // 
+            // inspectToolStripMenuItem
+            // 
+            this.inspectToolStripMenuItem.Name = "inspectToolStripMenuItem";
+            this.inspectToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.inspectToolStripMenuItem.Text = "Inspect";
+            this.inspectToolStripMenuItem.Click += new System.EventHandler(this.inspectToolStripMenuItem_Click);
             // 
             // toolStrip
             // 
@@ -77,7 +99,7 @@ namespace edytApp
             // refreshButton
             // 
             this.refreshButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.refreshButton.Image = ((System.Drawing.Image)(resources.GetObject("refreshButton.Image")));
+            this.refreshButton.Image = global::edytApp.Properties.Resources.refresh;
             this.refreshButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.refreshButton.Name = "refreshButton";
             this.refreshButton.Size = new System.Drawing.Size(23, 22);
@@ -140,28 +162,6 @@ namespace edytApp
             this.closeButton.Text = "close";
             this.closeButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // contextMenuStrip
-            // 
-            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.refreshToolStripMenuItem,
-            this.inspectToolStripMenuItem});
-            this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(114, 48);
-            // 
-            // refreshToolStripMenuItem
-            // 
-            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
-            this.refreshToolStripMenuItem.Text = "Refresh";
-            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
-            // 
-            // inspectToolStripMenuItem
-            // 
-            this.inspectToolStripMenuItem.Name = "inspectToolStripMenuItem";
-            this.inspectToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
-            this.inspectToolStripMenuItem.Text = "Inspect";
-            this.inspectToolStripMenuItem.Click += new System.EventHandler(this.inspectToolStripMenuItem_Click);
-            // 
             // codePreview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,9 +174,9 @@ namespace edytApp
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "codePreview";
             this.Text = "Edyt - Web Preview";
+            this.contextMenuStrip.ResumeLayout(false);
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
-            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

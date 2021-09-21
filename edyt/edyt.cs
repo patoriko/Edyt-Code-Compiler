@@ -1,36 +1,41 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+using System.Xml;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
 using System.Windows.Forms;
-using System.Xml;
+using System.ComponentModel;
+using System.Threading.Tasks;
+using System.Xml.Serialization;
+using System.Collections.Generic;
 
-using Microsoft.CSharp;
 using System.CodeDom;
+using Microsoft.CSharp;
 using System.CodeDom.Compiler;
 
 using System.IO;
+
 
 namespace edytApp
 {
     public partial class edyt : Form
     {
-        #region 
-
-        public bool isSaved = true;
-
-        private string currentFile = string.Empty;
-
-        #endregion
 
         public edyt()
         {
             InitializeComponent();
         }
+
+        #region Variables
+
+        public bool isSaved = true;
+
+        private string currentFile = string.Empty;
+
+        #endregion 
+
+        #region Events
 
         private void newToolStripButton_Click(object sender, EventArgs e)
         {
@@ -42,19 +47,6 @@ namespace edytApp
 
                     fastColoredTextBox.Text = string.Empty;
                 }
-            }
-        }
-
-        private void OpenDialog()
-        {
-            OpenFileDialog of = new OpenFileDialog();
-            of.Filter = "Text File|*.txt|Any File|*.*";
-            if (of.ShowDialog() == DialogResult.OK)
-            {
-                StreamReader sr = new StreamReader(of.FileName);
-                fastColoredTextBox.Text = sr.ReadToEnd();
-                sr.Close();
-                this.Text = of.FileName + " - Edyt";
             }
         }
 
@@ -140,29 +132,15 @@ namespace edytApp
             catch
             {
                 isSaved = false;
-                saveDialog();
+                SaveDialog();
             }
                 
             
         }
 
-        private void saveDialog()
-        {
-            SaveFileDialog sf = new SaveFileDialog();
-            sf.Filter = "Text File|*.txt|Any File|*.*";
-            if (sf.ShowDialog() == DialogResult.OK)
-            {
-                isSaved = true;
-                this.Text = sf.FileName + " - Edyt";
-                StreamWriter sr = new StreamWriter(sf.FileName);
-                sr.Write(fastColoredTextBox.Text);
-                sr.Close(); 
-            }
-        }
-
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            saveDialog();
+            SaveDialog();
         }
 
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
@@ -282,7 +260,83 @@ namespace edytApp
 
         private void runToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.HTML) 
+            Compile();
+        }
+
+        #endregion
+
+        #region Functions
+
+        private void OpenDialog()
+        {
+            OpenFileDialog of = new OpenFileDialog();
+            of.Filter = "Text File|*.txt|Any File|*.*";
+            if (of.ShowDialog() == DialogResult.OK)
+            {
+                StreamReader sr = new StreamReader(of.FileName);
+                fastColoredTextBox.Text = sr.ReadToEnd();
+                sr.Close();
+                this.Text = of.FileName + " - Edyt";
+            }
+        }
+
+        private void SaveDialog()
+        {
+            SaveFileDialog sf = new SaveFileDialog();
+            sf.Filter = "Text File|*.txt|Any File|*.*";
+            if (sf.ShowDialog() == DialogResult.OK)
+            {
+                isSaved = true;
+                this.Text = sf.FileName + " - Edyt";
+                StreamWriter sr = new StreamWriter(sf.FileName);
+                sr.Write(fastColoredTextBox.Text);
+                sr.Close();
+            }
+        }
+
+        private void LanguageCheck()
+        {
+            if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.CSharp)
+            {
+                this.languageLabel.Text = "C#";
+            }
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.VB)
+            {
+                this.languageLabel.Text = "VisualBasic";
+            }
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.JS)
+            {
+                this.languageLabel.Text = "JavaScript";
+            }
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.HTML)
+            {
+                this.languageLabel.Text = "HTML";
+            }
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.PHP)
+            {
+                this.languageLabel.Text = "PHP";
+            }
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.XML)
+            {
+                this.languageLabel.Text = "XML";
+            }
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.Lua)
+            {
+                this.languageLabel.Text = "Lua";
+            }
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.SQL)
+            {
+                this.languageLabel.Text = "SQL";
+            }
+            else
+            {
+                this.languageLabel.Text = "Custom";
+            }
+        }
+
+        private void Compile()
+        {
+            if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.HTML)
             {
                 codePreview h = new codePreview(fastColoredTextBox.Text);
                 h.Show();
@@ -292,7 +346,7 @@ namespace edytApp
                 codePreview p = new codePreview(fastColoredTextBox.Text);
                 p.Show();
             }
-            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.CSharp) 
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.CSharp)
             {
                 SaveFileDialog sf = new SaveFileDialog();
                 sf.Filter = "Executable File|*.exe";
@@ -335,7 +389,45 @@ namespace edytApp
             }
         }
 
-        # region Languages
+        #endregion
+
+        #region Data
+
+        public static void WriteXmlFile<T>(string filePath, T objectToWrite, bool append = false) where T : new()
+        {
+            TextWriter writer = null;
+            try
+            {
+                var serializer = new XmlSerializer(typeof(T));
+                writer = new StreamWriter(filePath, append);
+                serializer.Serialize(writer, objectToWrite);
+            }
+            finally
+            {
+                if (writer != null)
+                    writer.Close();
+            }
+        }
+
+        public static T ReadXmlFile<T>(string filePath) where T : new()
+        {
+            TextReader reader = null;
+            try
+            {
+                var serializer = new XmlSerializer(typeof(T));
+                reader = new StreamReader(filePath);
+                return (T)serializer.Deserialize(reader);
+            }
+            finally
+            {
+                if (reader != null)
+                    reader.Close();
+            }
+        }
+
+        #endregion
+
+        #region Languages
 
         private void cSharp()
         {
@@ -350,7 +442,7 @@ namespace edytApp
             customToolStripMenuItem.Checked = false;
 
             fastColoredTextBox.Language = FastColoredTextBoxNS.Language.CSharp;
-            languageCheck();
+            LanguageCheck();
         }
 
         private void visualBasic()
@@ -366,7 +458,7 @@ namespace edytApp
             customToolStripMenuItem.Checked = false;
 
             fastColoredTextBox.Language = FastColoredTextBoxNS.Language.VB;
-            languageCheck();
+            LanguageCheck();
         }
 
         private void javaScript()
@@ -382,7 +474,7 @@ namespace edytApp
             customToolStripMenuItem.Checked = false;
 
             fastColoredTextBox.Language = FastColoredTextBoxNS.Language.JS;
-            languageCheck();
+            LanguageCheck();
         }
 
         private void html()
@@ -398,7 +490,7 @@ namespace edytApp
             customToolStripMenuItem.Checked = false;
 
             fastColoredTextBox.Language = FastColoredTextBoxNS.Language.HTML;
-            languageCheck();
+            LanguageCheck();
         }
 
         private void php()
@@ -414,7 +506,7 @@ namespace edytApp
             customToolStripMenuItem.Checked = false;
 
             fastColoredTextBox.Language = FastColoredTextBoxNS.Language.PHP;
-            languageCheck();
+            LanguageCheck();
         }
 
         private void xml()
@@ -430,7 +522,7 @@ namespace edytApp
             customToolStripMenuItem.Checked = false;
 
             fastColoredTextBox.Language = FastColoredTextBoxNS.Language.XML;
-            languageCheck();
+            LanguageCheck();
         }
 
         private void lua()
@@ -446,7 +538,7 @@ namespace edytApp
             customToolStripMenuItem.Checked = false;
 
             fastColoredTextBox.Language = FastColoredTextBoxNS.Language.Lua;
-            languageCheck();
+            LanguageCheck();
         }
 
         private void sql()
@@ -462,7 +554,7 @@ namespace edytApp
             customToolStripMenuItem.Checked = false;
 
             fastColoredTextBox.Language = FastColoredTextBoxNS.Language.SQL;
-            languageCheck();
+            LanguageCheck();
         }
 
         private void custom()
@@ -478,7 +570,7 @@ namespace edytApp
             customToolStripMenuItem.Checked = true;
 
             fastColoredTextBox.Language = FastColoredTextBoxNS.Language.Custom;
-            languageCheck();
+            LanguageCheck();
         }
 
         #endregion
@@ -527,49 +619,9 @@ namespace edytApp
 
         #endregion
 
-        private void languageCheck()
-        {
-            if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.CSharp)
-            {
-                this.languageLabel.Text = "C#";
-            }
-            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.VB)
-            {
-                this.languageLabel.Text = "VisualBasic";
-            }
-            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.JS)
-            {
-                this.languageLabel.Text = "JavaScript";
-            }
-            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.HTML)
-            {
-                this.languageLabel.Text = "HTML";
-            }
-            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.PHP)
-            {
-                this.languageLabel.Text = "PHP";
-            }
-            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.XML)
-            {
-                this.languageLabel.Text = "XML";
-            }
-            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.Lua)
-            {
-                this.languageLabel.Text = "Lua";
-            }
-            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.SQL)
-            {
-                this.languageLabel.Text = "SQL";
-            }
-            else
-            {
-                this.languageLabel.Text = "Custom";
-            }
-        }
-
         private void edyt_Load(object sender, EventArgs e)
         {
-            languageCheck();
+            LanguageCheck();
         }
 
         private void fastColoredTextBox_TextChanged(object sender, FastColoredTextBoxNS.TextChangedEventArgs e)
