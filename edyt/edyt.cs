@@ -16,7 +16,6 @@ using System.CodeDom.Compiler;
 
 using System.IO;
 
-
 namespace edytApp
 {
     public partial class edyt : Form
@@ -29,7 +28,7 @@ namespace edytApp
 
         #region Variables
 
-        public bool isSaved = true;
+        private bool isSaved = true;
 
         private string currentFile = string.Empty;
 
@@ -270,13 +269,31 @@ namespace edytApp
         private void OpenDialog()
         {
             OpenFileDialog of = new OpenFileDialog();
-            of.Filter = "Text File|*.txt|Any File|*.*";
+            if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.CSharp)
+                of.Filter = "C# File (*.cs)|*.cs|Any File|*.*";
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.VB)
+                of.Filter = "VB File (*.vb)|*.vb|Any File|*.*";
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.JS)
+                of.Filter = "JS File (*.js)|*.js|Any File|*.*";
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.HTML)
+                of.Filter = "HTML File (*.html)|*.html|Any File|*.*";
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.PHP)
+                of.Filter = "PHP File (*.php)|*.php|Any File|*.*";
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.XML)
+                of.Filter = "XML File (*.xml)|*.xml|Any File|*.*";
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.Lua)
+                of.Filter = "Lua File (*.lua)|*.lua|Any File|*.*";
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.SQL)
+                of.Filter = "SQL File (*.sql)|*.sql|Any File|*.*";
+            else
+                of.Filter = "Any File|*.*";
+
             if (of.ShowDialog() == DialogResult.OK)
             {
                 StreamReader sr = new StreamReader(of.FileName);
                 fastColoredTextBox.Text = sr.ReadToEnd();
-                sr.Close();
                 this.Text = of.FileName + " - Edyt";
+                sr.Close();
             }
         }
 
@@ -349,7 +366,7 @@ namespace edytApp
             else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.CSharp)
             {
                 SaveFileDialog sf = new SaveFileDialog();
-                sf.Filter = "Executable File|*.exe";
+                sf.Filter = "Executable File (*.exe)|*.exe";
                 string OutPath = "?.exe";
                 if (sf.ShowDialog() == DialogResult.OK)
                 {
@@ -366,17 +383,17 @@ namespace edytApp
 
                 if (results.Errors.Count > 0)
                 {
-                    string errsText = "";
-                    foreach (CompilerError CompErr in results.Errors)
+                    string errorsText = "";
+                    foreach (CompilerError CompError in results.Errors)
                     {
-                        errsText = "(" + CompErr.ErrorNumber +
-                                    ")Line " + CompErr.Line +
-                                    ",Column " + CompErr.Column +
-                                    ":" + CompErr.ErrorText + "" +
+                        errorsText = "(" + CompError.ErrorNumber +
+                                    ") Line " + CompError.Line +
+                                    ",Column " + CompError.Column +
+                                    ":" + CompError.ErrorText + "" +
                                     Environment.NewLine;
                     }
 
-                    MessageBox.Show(errsText, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(errorsText, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {

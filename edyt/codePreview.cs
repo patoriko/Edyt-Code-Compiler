@@ -18,6 +18,8 @@ namespace edytApp
             webBrowser.DocumentText = file;    
         }
 
+        #region Events
+
         private void refreshButton_Click(object sender, EventArgs e)
         {
             this.Refresh();
@@ -59,6 +61,13 @@ namespace edytApp
         }
 
         private void webBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
+        }
+
+        #endregion
+
+        private void codePreview_Load(object sender, EventArgs e)
         {
 
         }

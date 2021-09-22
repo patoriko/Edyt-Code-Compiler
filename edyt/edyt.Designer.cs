@@ -101,7 +101,6 @@
             this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument = new System.Drawing.Printing.PrintDocument();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.positionStatusStripLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.languageLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
@@ -749,7 +748,6 @@
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.positionStatusStripLabel,
             this.languageLabel});
             this.statusStrip.Location = new System.Drawing.Point(0, 428);
             this.statusStrip.Name = "statusStrip";
@@ -757,18 +755,12 @@
             this.statusStrip.TabIndex = 4;
             this.statusStrip.Text = "statusStrip";
             // 
-            // positionStatusStripLabel
-            // 
-            this.positionStatusStripLabel.Margin = new System.Windows.Forms.Padding(545, 3, 0, 2);
-            this.positionStatusStripLabel.Name = "positionStatusStripLabel";
-            this.positionStatusStripLabel.Size = new System.Drawing.Size(134, 17);
-            this.positionStatusStripLabel.Text = "positionStatusStripLabel";
-            // 
             // languageLabel
             // 
             this.languageLabel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.languageLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
             this.languageLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
+            this.languageLabel.Margin = new System.Windows.Forms.Padding(675, 3, 0, 2);
             this.languageLabel.Name = "languageLabel";
             this.languageLabel.Size = new System.Drawing.Size(4, 17);
             // 
@@ -865,7 +857,6 @@
         private System.Windows.Forms.ToolStripMenuItem goToToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem runToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip;
-        private System.Windows.Forms.ToolStripStatusLabel positionStatusStripLabel;
         private System.Windows.Forms.ToolStripStatusLabel languageLabel;
         private System.Windows.Forms.ToolStripMenuItem csToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem visualBasicToolStripMenuItem;
