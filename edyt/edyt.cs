@@ -40,7 +40,7 @@ namespace edytApp
         {
             if (fastColoredTextBox.Text != string.Empty)
             {
-                if ((DialogResult.OK == MessageBox.Show("This file will be lost", "continue?", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)))
+                if (DialogResult.OK == MessageBox.Show("This file will be lost", "continue?", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning))
                 {
                     currentFile = string.Empty;
 
@@ -61,10 +61,12 @@ namespace edytApp
                 StreamWriter sw = new StreamWriter(this.Text);
                 sw.Write(fastColoredTextBox.Text);
                 sw.Close();
+                isSaved = true;
             }
             catch
             {
-                OpenDialog();
+                SaveDialog();
+                isSaved = true;
             }
         }
 
@@ -120,21 +122,8 @@ namespace edytApp
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
-        {            
-            try
-            {
-                isSaved = true;
-                StreamWriter sw = new StreamWriter(this.Text);
-                sw.Write(fastColoredTextBox.Text);
-                sw.Close();
-            }
-            catch
-            {
-                isSaved = false;
-                SaveDialog();
-            }
-                
-            
+        {
+            saveToolStripButton.PerformClick();
         }
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -300,15 +289,33 @@ namespace edytApp
         private void SaveDialog()
         {
             SaveFileDialog sf = new SaveFileDialog();
-            sf.Filter = "Text File|*.txt|Any File|*.*";
+            if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.CSharp)
+                sf.Filter = "C# File (*.cs)|*.cs|Any File|*.*";
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.VB)
+                sf.Filter = "VB File (*.vb)|*.vb|Any File|*.*";
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.JS)
+                sf.Filter = "JS File (*.js)|*.js|Any File|*.*";
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.HTML)
+                sf.Filter = "HTML File (*.html)|*.html|Any File|*.*";
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.PHP)
+                sf.Filter = "PHP File (*.php)|*.php|Any File|*.*";
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.XML)
+                sf.Filter = "XML File (*.xml)|*.xml|Any File|*.*";
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.Lua)
+                sf.Filter = "Lua File (*.lua)|*.lua|Any File|*.*";
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.SQL)
+                sf.Filter = "SQL File (*.sql)|*.sql|Any File|*.*";
+            else
+                sf.Filter = "Any File|*.*";
+
             if (sf.ShowDialog() == DialogResult.OK)
-            {
-                isSaved = true;
-                this.Text = sf.FileName + " - Edyt";
-                StreamWriter sr = new StreamWriter(sf.FileName);
-                sr.Write(fastColoredTextBox.Text);
-                sr.Close();
+            { 
+                StreamWriter sw = new StreamWriter(sf.FileName);
+                sw.Write(fastColoredTextBox.Text);
+                sw.Close();
             }
+
+            isSaved = true;
         }
 
         private void LanguageCheck()
