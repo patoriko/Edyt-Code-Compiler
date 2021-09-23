@@ -1,6 +1,8 @@
+#!/bin/bash
+
 # Install packages
 
-cd C:\\Users\\Pat\\source\\repos\\Edyt-Code-Compiler
+cd C:\\Users\\%USERNAME%\\source\\repos\\Edyt-Code-Compiler
 
 NuGet.exe install "Edyt-Code-Compiler/packages.config" -o packages/
 
@@ -9,4 +11,4 @@ NuGet.exe install "Edyt-Code-Compiler/packages.config" -o packages/
 
 cd C:\\Windows\\Microsoft.NET\\Framework\\v4*
 
-msbuild "C:\Users\Pat\source\repos\Edyt-Code-Compiler\edyt.sln" /t:Rebuild /p:Configuration=Release /p:Platform="Any CPU"
+msbuild "C:\Users\%USERNAME%\source\repos\Edyt-Code-Compiler\edyt.sln" /t:Rebuild /p:OutDir = C:\\Users\\%USERNAME%\\source\\repos\\Edyt-Code-Compiler; Configuration=Release; Platform = "Any CPU"
