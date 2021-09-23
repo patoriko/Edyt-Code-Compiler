@@ -660,7 +660,6 @@
             this.fastColoredTextBox.Font = new System.Drawing.Font("Roboto Mono", 9.75F);
             this.fastColoredTextBox.IndentBackColor = System.Drawing.SystemColors.Control;
             this.fastColoredTextBox.IsReplaceMode = false;
-            this.fastColoredTextBox.Language = FastColoredTextBoxNS.Language.CSharp;
             this.fastColoredTextBox.LeftBracket = '(';
             this.fastColoredTextBox.LeftBracket2 = '{';
             this.fastColoredTextBox.LineNumberColor = System.Drawing.Color.SlateBlue;

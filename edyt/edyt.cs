@@ -42,8 +42,8 @@ namespace edytApp
             {
                 if (DialogResult.OK == MessageBox.Show("This file will be lost", "continue?", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning))
                 {
+                    this.Text = "Edyt Code";
                     currentFile = string.Empty;
-
                     fastColoredTextBox.Text = string.Empty;
                 }
             }
@@ -58,7 +58,7 @@ namespace edytApp
         {
             try
             {
-                StreamWriter sw = new StreamWriter(this.Text);
+                StreamWriter sw = new StreamWriter(currentFile);
                 sw.Write(fastColoredTextBox.Text);
                 sw.Close();
                 isSaved = true;
@@ -66,7 +66,6 @@ namespace edytApp
             catch
             {
                 SaveDialog();
-                isSaved = true;
             }
         }
 
@@ -282,6 +281,8 @@ namespace edytApp
                 StreamReader sr = new StreamReader(of.FileName);
                 fastColoredTextBox.Text = sr.ReadToEnd();
                 this.Text = of.FileName + " - Edyt";
+                currentFile = of.FileName;
+                isSaved = true;
                 sr.Close();
             }
         }
@@ -313,9 +314,10 @@ namespace edytApp
                 StreamWriter sw = new StreamWriter(sf.FileName);
                 sw.Write(fastColoredTextBox.Text);
                 sw.Close();
+                this.Text = sf.FileName + " - Edyt";
+                currentFile = sf.FileName;
+                isSaved = true;
             }
-
-            isSaved = true;
         }
 
         private void LanguageCheck()
