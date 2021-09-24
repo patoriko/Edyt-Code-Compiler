@@ -457,146 +457,61 @@ namespace edytApp
 
         private void cSharp()
         {
-            csToolStripMenuItem.Checked = true;
-            visualBasicToolStripMenuItem.Checked = false;
-            javaScriptToolStripMenuItem.Checked = false;
-            htmlToolStripMenuItem.Checked = false;
-            phpToolStripMenuItem.Checked = false;
-            xmlToolStripMenuItem.Checked = false;
-            luaToolStripMenuItem.Checked = false;
-            sqlToolStripMenuItem.Checked = false;
-            customToolStripMenuItem.Checked = false;
-
             fastColoredTextBox.Language = FastColoredTextBoxNS.Language.CSharp;
             LanguageCheck();
         }
 
         private void visualBasic()
         {
-            csToolStripMenuItem.Checked = false;
-            visualBasicToolStripMenuItem.Checked = true;
-            javaScriptToolStripMenuItem.Checked = false;
-            htmlToolStripMenuItem.Checked = false;
-            phpToolStripMenuItem.Checked = false;
-            xmlToolStripMenuItem.Checked = false;
-            luaToolStripMenuItem.Checked = false;
-            sqlToolStripMenuItem.Checked = false;
-            customToolStripMenuItem.Checked = false;
-
             fastColoredTextBox.Language = FastColoredTextBoxNS.Language.VB;
             LanguageCheck();
         }
 
         private void javaScript()
         {
-            csToolStripMenuItem.Checked = false;
-            visualBasicToolStripMenuItem.Checked = false;
-            javaScriptToolStripMenuItem.Checked = true;
-            htmlToolStripMenuItem.Checked = false;
-            phpToolStripMenuItem.Checked = false;
-            xmlToolStripMenuItem.Checked = false;
-            luaToolStripMenuItem.Checked = false;
-            sqlToolStripMenuItem.Checked = false;
-            customToolStripMenuItem.Checked = false;
-
             fastColoredTextBox.Language = FastColoredTextBoxNS.Language.JS;
             LanguageCheck();
         }
 
         private void html()
         {
-            csToolStripMenuItem.Checked = false;
-            visualBasicToolStripMenuItem.Checked = false;
-            javaScriptToolStripMenuItem.Checked = false;
-            htmlToolStripMenuItem.Checked = true;
-            phpToolStripMenuItem.Checked = false;
-            xmlToolStripMenuItem.Checked = false;
-            luaToolStripMenuItem.Checked = false;
-            sqlToolStripMenuItem.Checked = false;
-            customToolStripMenuItem.Checked = false;
-
             fastColoredTextBox.Language = FastColoredTextBoxNS.Language.HTML;
             LanguageCheck();
         }
 
         private void php()
         {
-            csToolStripMenuItem.Checked = false;
-            visualBasicToolStripMenuItem.Checked = false;
-            javaScriptToolStripMenuItem.Checked = false;
-            htmlToolStripMenuItem.Checked = false;
-            phpToolStripMenuItem.Checked = true;
-            xmlToolStripMenuItem.Checked = false;
-            luaToolStripMenuItem.Checked = false;
-            sqlToolStripMenuItem.Checked = false;
-            customToolStripMenuItem.Checked = false;
-
             fastColoredTextBox.Language = FastColoredTextBoxNS.Language.PHP;
             LanguageCheck();
         }
 
         private void xml()
         {
-            csToolStripMenuItem.Checked = false;
-            visualBasicToolStripMenuItem.Checked = false;
-            javaScriptToolStripMenuItem.Checked = false;
-            htmlToolStripMenuItem.Checked = false;
-            phpToolStripMenuItem.Checked = false;
-            xmlToolStripMenuItem.Checked = true;
-            luaToolStripMenuItem.Checked = false;
-            sqlToolStripMenuItem.Checked = false;
-            customToolStripMenuItem.Checked = false;
-
             fastColoredTextBox.Language = FastColoredTextBoxNS.Language.XML;
             LanguageCheck();
         }
 
         private void lua()
         {
-            csToolStripMenuItem.Checked = false;
-            visualBasicToolStripMenuItem.Checked = false;
-            javaScriptToolStripMenuItem.Checked = false;
-            htmlToolStripMenuItem.Checked = false;
-            phpToolStripMenuItem.Checked = false;
-            xmlToolStripMenuItem.Checked = false;
-            luaToolStripMenuItem.Checked = true;
-            sqlToolStripMenuItem.Checked = false;
-            customToolStripMenuItem.Checked = false;
-
             fastColoredTextBox.Language = FastColoredTextBoxNS.Language.Lua;
             LanguageCheck();
         }
 
         private void sql()
         {
-            csToolStripMenuItem.Checked = false;
-            visualBasicToolStripMenuItem.Checked = false;
-            javaScriptToolStripMenuItem.Checked = false;
-            htmlToolStripMenuItem.Checked = false;
-            phpToolStripMenuItem.Checked = false;
-            xmlToolStripMenuItem.Checked = false;
-            luaToolStripMenuItem.Checked = false;
-            sqlToolStripMenuItem.Checked = true;
-            customToolStripMenuItem.Checked = false;
-
             fastColoredTextBox.Language = FastColoredTextBoxNS.Language.SQL;
             LanguageCheck();
         }
 
         private void custom()
         {
-            csToolStripMenuItem.Checked = false;
-            visualBasicToolStripMenuItem.Checked = false;
-            javaScriptToolStripMenuItem.Checked = false;
-            htmlToolStripMenuItem.Checked = false;
-            phpToolStripMenuItem.Checked = false;
-            xmlToolStripMenuItem.Checked = false;
-            luaToolStripMenuItem.Checked = false;
-            sqlToolStripMenuItem.Checked = false;
-            customToolStripMenuItem.Checked = true;
-
             fastColoredTextBox.Language = FastColoredTextBoxNS.Language.Custom;
             LanguageCheck();
+        }
+
+        private void languagesToolStripMenuItem_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            csToolStripMenuItem.Checked = visualBasicToolStripMenuItem.Checked = javaScriptToolStripMenuItem.Checked = htmlToolStripMenuItem.Checked = phpToolStripMenuItem.Checked = xmlToolStripMenuItem.Checked = luaToolStripMenuItem.Checked = sqlToolStripMenuItem.Checked = customToolStripMenuItem.Checked = false;
         }
 
         #endregion

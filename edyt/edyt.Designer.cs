@@ -341,12 +341,11 @@
             this.languagesToolStripMenuItem.Name = "languagesToolStripMenuItem";
             this.languagesToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.languagesToolStripMenuItem.Text = "&Languages";
+            this.languagesToolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.languagesToolStripMenuItem_DropDownItemClicked);
             // 
             // csToolStripMenuItem
             // 
-            this.csToolStripMenuItem.Checked = true;
             this.csToolStripMenuItem.CheckOnClick = true;
-            this.csToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.csToolStripMenuItem.Name = "csToolStripMenuItem";
             this.csToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.csToolStripMenuItem.Text = "C#";
@@ -410,7 +409,9 @@
             // 
             // customToolStripMenuItem
             // 
+            this.customToolStripMenuItem.Checked = true;
             this.customToolStripMenuItem.CheckOnClick = true;
+            this.customToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.customToolStripMenuItem.Name = "customToolStripMenuItem";
             this.customToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.customToolStripMenuItem.Text = "Custom";
@@ -662,7 +663,7 @@
             this.fastColoredTextBox.IsReplaceMode = false;
             this.fastColoredTextBox.LeftBracket = '(';
             this.fastColoredTextBox.LeftBracket2 = '{';
-            this.fastColoredTextBox.LineNumberColor = System.Drawing.Color.SlateBlue;
+            this.fastColoredTextBox.LineNumberColor = System.Drawing.SystemColors.ControlText;
             this.fastColoredTextBox.Location = new System.Drawing.Point(0, 49);
             this.fastColoredTextBox.Name = "fastColoredTextBox";
             this.fastColoredTextBox.Paddings = new System.Windows.Forms.Padding(0);
