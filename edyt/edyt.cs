@@ -328,11 +328,11 @@ namespace edytApp
             }
             else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.VB)
             {
-                this.languageLabel.Text = "VisualBasic";
+                this.languageLabel.Text = "Visual Basic";
             }
             else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.JS)
             {
-                this.languageLabel.Text = "JavaScript";
+                this.languageLabel.Text = "Java Script";
             }
             else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.HTML)
             {

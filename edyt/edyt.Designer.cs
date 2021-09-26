@@ -101,6 +101,7 @@
             this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument = new System.Drawing.Printing.PrintDocument();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.springLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.languageLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
@@ -111,6 +112,7 @@
             // 
             // menuStrip
             // 
+            this.menuStrip.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
@@ -119,7 +121,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip.Size = new System.Drawing.Size(1264, 27);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip";
             // 
@@ -135,76 +137,83 @@
             this.printToolStripMenuItem,
             this.toolStripSeparator2,
             this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(41, 23);
             this.fileToolStripMenuItem.Text = "&File";
             // 
             // newToolStripMenuItem
             // 
+            this.newToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.newToolStripMenuItem.Image = global::edytApp.Properties.Resources._new;
             this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newToolStripMenuItem.Text = "&New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
+            this.openToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.openToolStripMenuItem.Image = global::edytApp.Properties.Resources.open;
             this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "&Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(177, 6);
             // 
             // saveToolStripMenuItem
             // 
+            this.saveToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.saveToolStripMenuItem.Image = global::edytApp.Properties.Resources.save;
             this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Text = "&Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
+            this.saveAsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveAsToolStripMenuItem.Text = "Save &As";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // printToolStripMenuItem
             // 
+            this.printToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.printToolStripMenuItem.Image = global::edytApp.Properties.Resources.print;
             this.printToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
             this.printToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.printToolStripMenuItem.Text = "&Print";
             this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // exitToolStripMenuItem
             // 
+            this.exitToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -217,58 +226,64 @@
             this.cutToolStripMenuItem,
             this.copyToolStripMenuItem,
             this.pasteToolStripMenuItem});
+            this.editToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(44, 23);
             this.editToolStripMenuItem.Text = "&Edit";
             // 
             // undoToolStripMenuItem
             // 
+            this.undoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.undoToolStripMenuItem.Text = "&Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
             // redoToolStripMenuItem
             // 
+            this.redoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
             this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.redoToolStripMenuItem.Text = "&Redo";
             this.redoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(141, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
             // 
             // cutToolStripMenuItem
             // 
+            this.cutToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cutToolStripMenuItem.Image = global::edytApp.Properties.Resources.cut;
             this.cutToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
             this.cutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.cutToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cutToolStripMenuItem.Text = "Cu&t";
             this.cutToolStripMenuItem.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
             // 
             // copyToolStripMenuItem
             // 
+            this.copyToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.copyToolStripMenuItem.Image = global::edytApp.Properties.Resources.copy;
             this.copyToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
             this.copyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.copyToolStripMenuItem.Text = "&Copy";
             this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
             // pasteToolStripMenuItem
             // 
+            this.pasteToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.pasteToolStripMenuItem.Image = global::edytApp.Properties.Resources.paste;
             this.pasteToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
             this.pasteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pasteToolStripMenuItem.Text = "&Paste";
             this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
             // 
@@ -281,8 +296,9 @@
             this.findToolStripMenuItem,
             this.replaceToolStripMenuItem,
             this.goToToolStripMenuItem});
+            this.toolsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(52, 23);
             this.toolsToolStripMenuItem.Text = "&Tools";
             // 
             // customizeToolStripMenuItem
@@ -290,8 +306,9 @@
             this.customizeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.themeToolStripMenuItem,
             this.fontToolStripMenuItem});
+            this.customizeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.customizeToolStripMenuItem.Text = "&Customize";
             // 
             // themeToolStripMenuItem
@@ -299,8 +316,9 @@
             this.themeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lightThemeToolStripMenuItem,
             this.darkThemeToolStripMenuItem});
+            this.themeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.themeToolStripMenuItem.Name = "themeToolStripMenuItem";
-            this.themeToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.themeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.themeToolStripMenuItem.Text = "Theme";
             // 
             // lightThemeToolStripMenuItem
@@ -321,8 +339,9 @@
             // 
             // fontToolStripMenuItem
             // 
+            this.fontToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
-            this.fontToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.fontToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.fontToolStripMenuItem.Text = "Font";
             this.fontToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
             // 
@@ -338,8 +357,9 @@
             this.luaToolStripMenuItem,
             this.sqlToolStripMenuItem,
             this.customToolStripMenuItem});
+            this.languagesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.languagesToolStripMenuItem.Name = "languagesToolStripMenuItem";
-            this.languagesToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.languagesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.languagesToolStripMenuItem.Text = "&Languages";
             this.languagesToolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.languagesToolStripMenuItem_DropDownItemClicked);
             // 
@@ -347,7 +367,7 @@
             // 
             this.csToolStripMenuItem.CheckOnClick = true;
             this.csToolStripMenuItem.Name = "csToolStripMenuItem";
-            this.csToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.csToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.csToolStripMenuItem.Text = "C#";
             this.csToolStripMenuItem.Click += new System.EventHandler(this.csToolStripMenuItem_Click);
             // 
@@ -355,7 +375,7 @@
             // 
             this.visualBasicToolStripMenuItem.CheckOnClick = true;
             this.visualBasicToolStripMenuItem.Name = "visualBasicToolStripMenuItem";
-            this.visualBasicToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.visualBasicToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.visualBasicToolStripMenuItem.Text = "Visual Basic";
             this.visualBasicToolStripMenuItem.Click += new System.EventHandler(this.visualBasicToolStripMenuItem_Click);
             // 
@@ -363,15 +383,15 @@
             // 
             this.javaScriptToolStripMenuItem.CheckOnClick = true;
             this.javaScriptToolStripMenuItem.Name = "javaScriptToolStripMenuItem";
-            this.javaScriptToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
-            this.javaScriptToolStripMenuItem.Text = "JavaScript";
+            this.javaScriptToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.javaScriptToolStripMenuItem.Text = "Java Script";
             this.javaScriptToolStripMenuItem.Click += new System.EventHandler(this.javaScriptToolStripMenuItem_Click);
             // 
             // htmlToolStripMenuItem
             // 
             this.htmlToolStripMenuItem.CheckOnClick = true;
             this.htmlToolStripMenuItem.Name = "htmlToolStripMenuItem";
-            this.htmlToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.htmlToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.htmlToolStripMenuItem.Text = "HTML";
             this.htmlToolStripMenuItem.Click += new System.EventHandler(this.htmlToolStripMenuItem_Click);
             // 
@@ -379,7 +399,7 @@
             // 
             this.phpToolStripMenuItem.CheckOnClick = true;
             this.phpToolStripMenuItem.Name = "phpToolStripMenuItem";
-            this.phpToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.phpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.phpToolStripMenuItem.Text = "PHP";
             this.phpToolStripMenuItem.Click += new System.EventHandler(this.phpToolStripMenuItem_Click);
             // 
@@ -387,7 +407,7 @@
             // 
             this.xmlToolStripMenuItem.CheckOnClick = true;
             this.xmlToolStripMenuItem.Name = "xmlToolStripMenuItem";
-            this.xmlToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.xmlToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.xmlToolStripMenuItem.Text = "XML";
             this.xmlToolStripMenuItem.Click += new System.EventHandler(this.xmlToolStripMenuItem_Click);
             // 
@@ -395,7 +415,7 @@
             // 
             this.luaToolStripMenuItem.CheckOnClick = true;
             this.luaToolStripMenuItem.Name = "luaToolStripMenuItem";
-            this.luaToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.luaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.luaToolStripMenuItem.Text = "Lua";
             this.luaToolStripMenuItem.Click += new System.EventHandler(this.luaToolStripMenuItem_Click);
             // 
@@ -403,7 +423,7 @@
             // 
             this.sqlToolStripMenuItem.CheckOnClick = true;
             this.sqlToolStripMenuItem.Name = "sqlToolStripMenuItem";
-            this.sqlToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.sqlToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sqlToolStripMenuItem.Text = "SQL";
             this.sqlToolStripMenuItem.Click += new System.EventHandler(this.sqlToolStripMenuItem_Click);
             // 
@@ -413,43 +433,47 @@
             this.customToolStripMenuItem.CheckOnClick = true;
             this.customToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.customToolStripMenuItem.Name = "customToolStripMenuItem";
-            this.customToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.customToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.customToolStripMenuItem.Text = "Custom";
             this.customToolStripMenuItem.Click += new System.EventHandler(this.customToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(155, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(177, 6);
             // 
             // findToolStripMenuItem
             // 
+            this.findToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.findToolStripMenuItem.Name = "findToolStripMenuItem";
             this.findToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.findToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.findToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.findToolStripMenuItem.Text = "Find";
             this.findToolStripMenuItem.Click += new System.EventHandler(this.findToolStripMenuItem_Click);
             // 
             // replaceToolStripMenuItem
             // 
+            this.replaceToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.replaceToolStripMenuItem.Name = "replaceToolStripMenuItem";
             this.replaceToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
-            this.replaceToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.replaceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.replaceToolStripMenuItem.Text = "Replace";
             this.replaceToolStripMenuItem.Click += new System.EventHandler(this.replaceToolStripMenuItem_Click);
             // 
             // goToToolStripMenuItem
             // 
+            this.goToToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.goToToolStripMenuItem.Name = "goToToolStripMenuItem";
             this.goToToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
-            this.goToToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.goToToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.goToToolStripMenuItem.Text = "Go to...";
             this.goToToolStripMenuItem.Click += new System.EventHandler(this.goToToolStripMenuItem_Click);
             // 
             // runToolStripMenuItem
             // 
+            this.runToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.runToolStripMenuItem.Name = "runToolStripMenuItem";
-            this.runToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
+            this.runToolStripMenuItem.Size = new System.Drawing.Size(45, 23);
             this.runToolStripMenuItem.Text = "Run";
             this.runToolStripMenuItem.Click += new System.EventHandler(this.runToolStripMenuItem_Click);
             // 
@@ -461,41 +485,48 @@
             this.searchToolStripMenuItem,
             this.toolStripSeparator5,
             this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 23);
             this.helpToolStripMenuItem.Text = "&Help";
             // 
             // contentsToolStripMenuItem
             // 
+            this.contentsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
-            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.contentsToolStripMenuItem.Text = "&Contents";
             // 
             // indexToolStripMenuItem
             // 
+            this.indexToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-            this.indexToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.indexToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.indexToolStripMenuItem.Text = "&Index";
             // 
             // searchToolStripMenuItem
             // 
+            this.searchToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.searchToolStripMenuItem.Text = "&Search";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(119, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
             // 
             // aboutToolStripMenuItem
             // 
+            this.aboutToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "&About...";
             // 
             // toolStrip
             // 
+            this.toolStrip.AutoSize = false;
+            this.toolStrip.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripButton,
             this.openToolStripButton,
@@ -510,126 +541,139 @@
             this.redoToolStripButton,
             this.toolStripSeparator8,
             this.helpToolStripButton});
-            this.toolStrip.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip.Location = new System.Drawing.Point(0, 27);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(800, 25);
+            this.toolStrip.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.toolStrip.Size = new System.Drawing.Size(1264, 27);
+            this.toolStrip.Stretch = true;
             this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "toolStrip";
             // 
             // newToolStripButton
             // 
             this.newToolStripButton.AccessibleName = "";
+            this.newToolStripButton.AutoSize = false;
             this.newToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.newToolStripButton.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.newToolStripButton.Image = global::edytApp.Properties.Resources._new;
             this.newToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.newToolStripButton.Name = "newToolStripButton";
-            this.newToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.newToolStripButton.Size = new System.Drawing.Size(27, 26);
             this.newToolStripButton.Text = "&New";
             this.newToolStripButton.Click += new System.EventHandler(this.newToolStripButton_Click);
             // 
             // openToolStripButton
             // 
+            this.openToolStripButton.AutoSize = false;
             this.openToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.openToolStripButton.Image = global::edytApp.Properties.Resources.open;
             this.openToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.openToolStripButton.Name = "openToolStripButton";
-            this.openToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.openToolStripButton.Size = new System.Drawing.Size(27, 26);
             this.openToolStripButton.Text = "&Open";
             this.openToolStripButton.Click += new System.EventHandler(this.openToolStripButton_Click);
             // 
             // saveToolStripButton
             // 
+            this.saveToolStripButton.AutoSize = false;
             this.saveToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.saveToolStripButton.Image = global::edytApp.Properties.Resources.save;
             this.saveToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveToolStripButton.Name = "saveToolStripButton";
-            this.saveToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.saveToolStripButton.Size = new System.Drawing.Size(27, 26);
             this.saveToolStripButton.Text = "&Save";
             this.saveToolStripButton.Click += new System.EventHandler(this.saveToolStripButton_Click);
             // 
             // printToolStripButton
             // 
+            this.printToolStripButton.AutoSize = false;
             this.printToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.printToolStripButton.Image = global::edytApp.Properties.Resources.print;
             this.printToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.printToolStripButton.Name = "printToolStripButton";
-            this.printToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.printToolStripButton.Size = new System.Drawing.Size(27, 26);
             this.printToolStripButton.Text = "&Print";
             this.printToolStripButton.Click += new System.EventHandler(this.printToolStripButton_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 27);
             // 
             // cutToolStripButton
             // 
+            this.cutToolStripButton.AutoSize = false;
             this.cutToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.cutToolStripButton.Image = global::edytApp.Properties.Resources.cut;
             this.cutToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.cutToolStripButton.Name = "cutToolStripButton";
-            this.cutToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.cutToolStripButton.Size = new System.Drawing.Size(27, 26);
             this.cutToolStripButton.Text = "C&ut";
             this.cutToolStripButton.Click += new System.EventHandler(this.cutToolStripButton_Click);
             // 
             // copyToolStripButton
             // 
+            this.copyToolStripButton.AutoSize = false;
             this.copyToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.copyToolStripButton.Image = global::edytApp.Properties.Resources.copy;
             this.copyToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.copyToolStripButton.Name = "copyToolStripButton";
-            this.copyToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.copyToolStripButton.Size = new System.Drawing.Size(27, 26);
             this.copyToolStripButton.Text = "&Copy";
             this.copyToolStripButton.Click += new System.EventHandler(this.copyToolStripButton_Click);
             // 
             // pasteToolStripButton
             // 
+            this.pasteToolStripButton.AutoSize = false;
             this.pasteToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.pasteToolStripButton.Image = global::edytApp.Properties.Resources.paste;
             this.pasteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.pasteToolStripButton.Name = "pasteToolStripButton";
-            this.pasteToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.pasteToolStripButton.Size = new System.Drawing.Size(27, 26);
             this.pasteToolStripButton.Text = "&Paste";
             this.pasteToolStripButton.Click += new System.EventHandler(this.pasteToolStripButton_Click);
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 27);
             // 
             // undoToolStripButton
             // 
+            this.undoToolStripButton.AutoSize = false;
             this.undoToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.undoToolStripButton.Image = global::edytApp.Properties.Resources.undo;
             this.undoToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.undoToolStripButton.Name = "undoToolStripButton";
-            this.undoToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.undoToolStripButton.Size = new System.Drawing.Size(27, 26);
             this.undoToolStripButton.Text = "Undo";
             this.undoToolStripButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.undoToolStripButton.Click += new System.EventHandler(this.undoToolStripButton_Click);
             // 
             // redoToolStripButton
             // 
+            this.redoToolStripButton.AutoSize = false;
             this.redoToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.redoToolStripButton.Image = global::edytApp.Properties.Resources.redo;
             this.redoToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.redoToolStripButton.Name = "redoToolStripButton";
-            this.redoToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.redoToolStripButton.Size = new System.Drawing.Size(27, 26);
             this.redoToolStripButton.Text = "Redo";
             this.redoToolStripButton.Click += new System.EventHandler(this.redoToolStripButton_Click);
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 27);
             // 
             // helpToolStripButton
             // 
+            this.helpToolStripButton.AutoSize = false;
             this.helpToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.helpToolStripButton.Image = global::edytApp.Properties.Resources.help;
             this.helpToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.helpToolStripButton.Name = "helpToolStripButton";
-            this.helpToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.helpToolStripButton.Size = new System.Drawing.Size(27, 26);
             this.helpToolStripButton.Text = "He&lp";
             this.helpToolStripButton.Click += new System.EventHandler(this.helpToolStripButton_Click);
             // 
@@ -649,30 +693,31 @@
         '\''};
             this.fastColoredTextBox.AutoIndentCharsPatterns = "\r\n^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>[^;]+);\r\n^\\s*(case|default)\\s*[^:]" +
     "*(?<range>:)\\s*(?<range>[^;]+);\r\n";
-            this.fastColoredTextBox.AutoScrollMinSize = new System.Drawing.Size(0, 17);
+            this.fastColoredTextBox.AutoScrollMinSize = new System.Drawing.Size(0, 19);
             this.fastColoredTextBox.BackBrush = null;
             this.fastColoredTextBox.BracketsHighlightStrategy = FastColoredTextBoxNS.BracketsHighlightStrategy.Strategy2;
-            this.fastColoredTextBox.CharHeight = 17;
-            this.fastColoredTextBox.CharWidth = 8;
+            this.fastColoredTextBox.CharHeight = 19;
+            this.fastColoredTextBox.CharWidth = 9;
             this.fastColoredTextBox.ContextMenuStrip = this.contextMenuStrip;
             this.fastColoredTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.fastColoredTextBox.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.fastColoredTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fastColoredTextBox.Font = new System.Drawing.Font("Roboto Mono", 9.75F);
+            this.fastColoredTextBox.Font = new System.Drawing.Font("Cascadia Code", 12F);
+            this.fastColoredTextBox.ForeColor = System.Drawing.SystemColors.ControlText;
             this.fastColoredTextBox.IndentBackColor = System.Drawing.SystemColors.Control;
             this.fastColoredTextBox.IsReplaceMode = false;
             this.fastColoredTextBox.LeftBracket = '(';
             this.fastColoredTextBox.LeftBracket2 = '{';
-            this.fastColoredTextBox.LineNumberColor = System.Drawing.SystemColors.ControlText;
-            this.fastColoredTextBox.Location = new System.Drawing.Point(0, 49);
+            this.fastColoredTextBox.LineNumberColor = System.Drawing.SystemColors.ControlDark;
+            this.fastColoredTextBox.Location = new System.Drawing.Point(0, 54);
             this.fastColoredTextBox.Name = "fastColoredTextBox";
             this.fastColoredTextBox.Paddings = new System.Windows.Forms.Padding(0);
             this.fastColoredTextBox.RightBracket = ')';
             this.fastColoredTextBox.RightBracket2 = '}';
             this.fastColoredTextBox.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.fastColoredTextBox.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("fastColoredTextBox.ServiceColors")));
-            this.fastColoredTextBox.Size = new System.Drawing.Size(800, 401);
-            this.fastColoredTextBox.TabIndex = 3;
+            this.fastColoredTextBox.Size = new System.Drawing.Size(1264, 627);
+            this.fastColoredTextBox.TabIndex = 4;
             this.fastColoredTextBox.WordWrap = true;
             this.fastColoredTextBox.Zoom = 100;
             this.fastColoredTextBox.TextChanged += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.fastColoredTextBox_TextChanged);
@@ -748,27 +793,35 @@
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.springLabel,
             this.languageLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 428);
+            this.statusStrip.Location = new System.Drawing.Point(0, 658);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(800, 22);
+            this.statusStrip.Size = new System.Drawing.Size(1264, 23);
             this.statusStrip.TabIndex = 4;
             this.statusStrip.Text = "statusStrip";
             // 
+            // springLabel
+            // 
+            this.springLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+            this.springLabel.Name = "springLabel";
+            this.springLabel.Size = new System.Drawing.Size(1147, 18);
+            this.springLabel.Spring = true;
+            // 
             // languageLabel
             // 
-            this.languageLabel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.languageLabel.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
-            this.languageLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
-            this.languageLabel.Margin = new System.Windows.Forms.Padding(675, 3, 0, 2);
+            this.languageLabel.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.languageLabel.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.languageLabel.Name = "languageLabel";
-            this.languageLabel.Size = new System.Drawing.Size(4, 17);
+            this.languageLabel.Padding = new System.Windows.Forms.Padding(0, 0, 45, 0);
+            this.languageLabel.Size = new System.Drawing.Size(102, 19);
+            this.languageLabel.Text = "Custom";
             // 
             // edyt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.fastColoredTextBox);
             this.Controls.Add(this.toolStrip);
@@ -857,7 +910,6 @@
         private System.Windows.Forms.ToolStripMenuItem goToToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem runToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip;
-        private System.Windows.Forms.ToolStripStatusLabel languageLabel;
         private System.Windows.Forms.ToolStripMenuItem csToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem visualBasicToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem javaScriptToolStripMenuItem;
@@ -867,6 +919,8 @@
         private System.Windows.Forms.ToolStripMenuItem luaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sqlToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customToolStripMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel springLabel;
+        private System.Windows.Forms.ToolStripStatusLabel languageLabel;
     }
 }
 
