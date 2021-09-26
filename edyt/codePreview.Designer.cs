@@ -172,7 +172,6 @@ namespace edytApp
             this.Controls.Add(this.webBrowser);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Load += new System.EventHandler(this.codePreview_Load);
             this.Name = "codePreview";
             this.Text = "Edyt - Web Preview";
             this.contextMenuStrip.ResumeLayout(false);

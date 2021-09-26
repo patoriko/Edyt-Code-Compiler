@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace edytApp
@@ -15,7 +8,7 @@ namespace edytApp
         public codePreview(string file)
         {
             InitializeComponent();
-            webBrowser.DocumentText = file;    
+            webBrowser.DocumentText = file;
         }
 
         #region Events
@@ -52,24 +45,15 @@ namespace edytApp
 
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Error - Not Added Yet");
         }
 
         private void inspectToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-        }
-
-        private void webBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
-
+            MessageBox.Show("Error - Not Added Yet");
         }
 
         #endregion
 
-        private void codePreview_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
