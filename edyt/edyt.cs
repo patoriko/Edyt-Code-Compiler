@@ -29,29 +29,21 @@ namespace edytApp
 
         public static class Prompt
         {
-            public static string ShowDialog(string caption, string text)
+            public static string ShowDialog(string text, string caption)
             {
-                Form prompt = new Form()
-                {
-                    Width = 220,
-                    Height = 135,
-                    FormBorderStyle = FormBorderStyle.FixedToolWindow,
-                    Text = caption,
-                    StartPosition = FormStartPosition.CenterScreen
-                };
-                Label textLabel = new Label() { Left = 15, Top = 30, Text = text };
-                TextBox textBox = new TextBox() { Left = 80, Top = 27, Width = 100 };
-                Button confirmation = new Button() { Text = "Ok", Left = 35, Width = 55, Top = 60, DialogResult = DialogResult.OK };
-                Button cancel = new Button() { Text = "Cancel", Left = 115, Width = 55, Top = 60, DialogResult = DialogResult.OK };
+                Form prompt = new Form();
+                prompt.Width = 300;
+                prompt.Height = 200;
+                prompt.Text = caption;
+                Label textLabel = new Label() { Left = 130, Top = 10, Text = text };
+                TextBox inputBox = new TextBox() { Left = 120, Top = 50, Width = 70 };
+                Button confirmation = new Button() { Text = "Ok", Left = 140, Width = 50, Top = 120 };
                 confirmation.Click += (sender, e) => { prompt.Close(); };
-      //          cancel.Click += (e) => { prompt.Close(); };
-                prompt.Controls.Add(textBox);
                 prompt.Controls.Add(confirmation);
-                prompt.Controls.Add(cancel);
                 prompt.Controls.Add(textLabel);
-                prompt.AcceptButton = confirmation;
-
-                return prompt.ShowDialog() == DialogResult.OK ? textBox.Text : "";
+                prompt.Controls.Add(inputBox);
+                prompt.ShowDialog();
+                return (string)inputBox.Text;
             }
         }
 
@@ -98,7 +90,7 @@ namespace edytApp
             try
             {
                 StreamWriter sw = new StreamWriter(currentFile);
-                sw.Write(GetFCTB().Text);
+                sw.Write(fastColoredTextBox.Text);
                 sw.Close();
                 isSaved = true;
             }
@@ -315,21 +307,21 @@ namespace edytApp
         private void OpenDialog()
         {
             OpenFileDialog of = new OpenFileDialog();
-            if (GetFCTB().Language == FastColoredTextBoxNS.Language.CSharp)
+            if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.CSharp)
                 of.Filter = "C# File (*.cs)|*.cs|Any File|*.*";
-            else if (GetFCTB().Language == FastColoredTextBoxNS.Language.VB)
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.VB)
                 of.Filter = "VB File (*.vb)|*.vb|Any File|*.*";
-            else if (GetFCTB().Language == FastColoredTextBoxNS.Language.JS)
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.JS)
                 of.Filter = "JS File (*.js)|*.js|Any File|*.*";
-            else if (GetFCTB().Language == FastColoredTextBoxNS.Language.HTML)
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.HTML)
                 of.Filter = "HTML File (*.html)|*.html|Any File|*.*";
-            else if (GetFCTB().Language == FastColoredTextBoxNS.Language.PHP)
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.PHP)
                 of.Filter = "PHP File (*.php)|*.php|Any File|*.*";
-            else if (GetFCTB().Language == FastColoredTextBoxNS.Language.XML)
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.XML)
                 of.Filter = "XML File (*.xml)|*.xml|Any File|*.*";
-            else if (GetFCTB().Language == FastColoredTextBoxNS.Language.Lua)
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.Lua)
                 of.Filter = "Lua File (*.lua)|*.lua|Any File|*.*";
-            else if (GetFCTB().Language == FastColoredTextBoxNS.Language.SQL)
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.SQL)
                 of.Filter = "SQL File (*.sql)|*.sql|Any File|*.*";
             else
                 of.Filter = "Any File|*.*";
@@ -351,21 +343,21 @@ namespace edytApp
         private void SaveDialog()
         {
             SaveFileDialog sf = new SaveFileDialog();
-            if (GetFCTB().Language == FastColoredTextBoxNS.Language.CSharp)
+            if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.CSharp)
                 sf.Filter = "C# File (*.cs)|*.cs|Any File|*.*";
-            else if (GetFCTB().Language == FastColoredTextBoxNS.Language.VB)
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.VB)
                 sf.Filter = "VB File (*.vb)|*.vb|Any File|*.*";
-            else if (GetFCTB().Language == FastColoredTextBoxNS.Language.JS)
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.JS)
                 sf.Filter = "JS File (*.js)|*.js|Any File|*.*";
-            else if (GetFCTB().Language == FastColoredTextBoxNS.Language.HTML)
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.HTML)
                 sf.Filter = "HTML File (*.html)|*.html|Any File|*.*";
-            else if (GetFCTB().Language == FastColoredTextBoxNS.Language.PHP)
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.PHP)
                 sf.Filter = "PHP File (*.php)|*.php|Any File|*.*";
-            else if (GetFCTB().Language == FastColoredTextBoxNS.Language.XML)
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.XML)
                 sf.Filter = "XML File (*.xml)|*.xml|Any File|*.*";
-            else if (GetFCTB().Language == FastColoredTextBoxNS.Language.Lua)
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.Lua)
                 sf.Filter = "Lua File (*.lua)|*.lua|Any File|*.*";
-            else if (GetFCTB().Language == FastColoredTextBoxNS.Language.SQL)
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.SQL)
                 sf.Filter = "SQL File (*.sql)|*.sql|Any File|*.*";
             else
                 sf.Filter = "Any File|*.*";
@@ -382,35 +374,35 @@ namespace edytApp
 
         private void LanguageCheck()
         {
-            if (GetFCTB().Language == FastColoredTextBoxNS.Language.CSharp)
+            if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.CSharp)
             {
                 this.languageLabel.Text = "C#";
             }
-            else if (GetFCTB().Language == FastColoredTextBoxNS.Language.VB)
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.VB)
             {
                 this.languageLabel.Text = "Visual Basic";
             }
-            else if (GetFCTB().Language == FastColoredTextBoxNS.Language.JS)
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.JS)
             {
                 this.languageLabel.Text = "Java Script";
             }
-            else if (GetFCTB().Language == FastColoredTextBoxNS.Language.HTML)
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.HTML)
             {
                 this.languageLabel.Text = "HTML";
             }
-            else if (GetFCTB().Language == FastColoredTextBoxNS.Language.PHP)
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.PHP)
             {
                 this.languageLabel.Text = "PHP";
             }
-            else if (GetFCTB().Language == FastColoredTextBoxNS.Language.XML)
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.XML)
             {
                 this.languageLabel.Text = "XML";
             }
-            else if (GetFCTB().Language == FastColoredTextBoxNS.Language.Lua)
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.Lua)
             {
                 this.languageLabel.Text = "Lua";
             }
-            else if (GetFCTB().Language == FastColoredTextBoxNS.Language.SQL)
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.SQL)
             {
                 this.languageLabel.Text = "SQL";
             }
@@ -422,17 +414,17 @@ namespace edytApp
 
         private void Compile()
         {
-            if (GetFCTB().Language == FastColoredTextBoxNS.Language.HTML)
+            if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.HTML)
             {
                 codePreview h = new codePreview(GetFCTB().Text);
                 h.Show();
             }
-            else if (GetFCTB().Language == FastColoredTextBoxNS.Language.PHP)
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.PHP)
             {
                 codePreview p = new codePreview(GetFCTB().Text);
                 p.Show();
             }
-            else if (GetFCTB().Language == FastColoredTextBoxNS.Language.CSharp)
+            else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.CSharp)
             {
                 SaveFileDialog sf = new SaveFileDialog();
                 sf.Filter = "Executable File (*.exe)|*.exe";
@@ -446,7 +438,7 @@ namespace edytApp
                 CompilerParameters parameters = new CompilerParameters(new string[] { "System.dll" });
                 parameters.GenerateExecutable = true;
                 parameters.OutputAssembly = OutPath;
-                string[] sources = { GetFCTB().Text };
+                string[] sources = { fastColoredTextBox.Text };
 
                 CompilerResults results = codeProvider.CompileAssemblyFromSource(parameters, sources);
 
@@ -592,10 +584,10 @@ namespace edytApp
 
             toolStrip.BackColor = SystemColors.Control;
 
-            GetFCTB().BackColor = Color.White;
-            GetFCTB().ForeColor = Color.Black;
-            GetFCTB().LineNumberColor = Color.Turquoise;
-            GetFCTB().IndentBackColor = Color.WhiteSmoke;
+            fastColoredTextBox.BackColor = Color.White;
+            fastColoredTextBox.ForeColor = Color.Black;
+            fastColoredTextBox.LineNumberColor = Color.Turquoise;
+            fastColoredTextBox.IndentBackColor = Color.WhiteSmoke;
         }
 
         private void darkTheme()
@@ -612,13 +604,18 @@ namespace edytApp
 
             toolStrip.BackColor = Color.Black;
 
-            GetFCTB().BackColor = Color.Black;
-            GetFCTB().ForeColor = Color.White;
-            GetFCTB().LineNumberColor = Color.Turquoise;
-            GetFCTB().IndentBackColor = Color.Black;
+            fastColoredTextBox.BackColor = Color.Black;
+            fastColoredTextBox.ForeColor = Color.White;
+            fastColoredTextBox.LineNumberColor = Color.Turquoise;
+            fastColoredTextBox.IndentBackColor = Color.Black;
         }
 
         #endregion
+
+        private void edyt_Load(object sender, EventArgs e)
+        {
+            LanguageCheck();
+        }
 
         private void fastColoredTextBox_TextChanged(object sender, FastColoredTextBoxNS.TextChangedEventArgs e)
         {
@@ -636,17 +633,7 @@ namespace edytApp
 
         private void renameTabToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TabPage currTab = tabControl.SelectedTab;
             string promptValue = Prompt.ShowDialog("Rename Selected Tab", "New Name:");
-
-            if (promptValue == null || currTab == null)
-            {
-                ;
-            }
-            else
-            {
-                currTab.Text = promptValue;
-            }
         }
     }
 }
