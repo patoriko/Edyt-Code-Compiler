@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using FastColoredTextBoxNS;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Threading.Tasks;
@@ -26,11 +27,44 @@ namespace edytApp
             InitializeComponent();
         }
 
+        public static class Prompt
+        {
+            public static string ShowDialog(string text, string caption)
+            {
+                Form prompt = new Form();
+                prompt.Width = 300;
+                prompt.Height = 200;
+                prompt.Text = caption;
+                Label textLabel = new Label() { Left = 130, Top = 10, Text = text };
+                TextBox inputBox = new TextBox() { Left = 120, Top = 50, Width = 70 };
+                Button confirmation = new Button() { Text = "Ok", Left = 140, Width = 50, Top = 120 };
+                confirmation.Click += (sender, e) => { prompt.Close(); };
+                prompt.Controls.Add(confirmation);
+                prompt.Controls.Add(textLabel);
+                prompt.Controls.Add(inputBox);
+                prompt.ShowDialog();
+                return (string)inputBox.Text;
+            }
+        }
+
         #region Variables
 
         private bool isSaved = true;
 
         private string currentFile = string.Empty;
+
+        private FastColoredTextBox GetFCTB()
+        {
+            FastColoredTextBox fctb = null;
+            TabPage tp = tabControl.SelectedTab;
+
+            if (tp != null)
+            {
+                fctb = tp.Controls[0] as FastColoredTextBox;
+            }
+
+            return fctb;
+        }
 
         #endregion 
 
@@ -38,15 +72,12 @@ namespace edytApp
 
         private void newToolStripButton_Click(object sender, EventArgs e)
         {
-            if (fastColoredTextBox.Text != string.Empty)
-            {
-                if (DialogResult.OK == MessageBox.Show("This file will be lost", "continue?", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning))
-                {
-                    this.Text = "Edyt Code";
-                    currentFile = string.Empty;
-                    fastColoredTextBox.Text = string.Empty;
-                }
-            }
+            TabPage tp = new TabPage("New File");
+            FastColoredTextBox fctb = new FastColoredTextBox();
+            fctb.Dock = DockStyle.Fill;
+
+            tp.Controls.Add(fctb);
+            tabControl.TabPages.Add(tp);
         }
 
         private void openToolStripButton_Click(object sender, EventArgs e)
@@ -69,9 +100,28 @@ namespace edytApp
             }
         }
 
+        private void closeToolStripMenu_Click(object sender, EventArgs e)
+        {
+            TabPage currTab = tabControl.SelectedTab;
+
+            if (tabControl.SelectedTab == null)
+            {
+                ;
+            }
+            else
+            {
+                tabControl.TabPages.Remove(currTab);
+            }            
+        }
+
+        private void closeAllToolStripButton_Click(object sender, EventArgs e)
+        {
+            tabControl.TabPages.Clear(); 
+        }
+
         private void printDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            e.Graphics.DrawString(fastColoredTextBox.Text, new Font("Segoe UI", 14, FontStyle.Regular), Brushes.Black, new PointF(100, 100));
+            e.Graphics.DrawString(GetFCTB().Text, new Font("Segoe UI", 14, FontStyle.Regular), Brushes.Black, new PointF(100, 100));
         }
 
         private void printToolStripButton_Click(object sender, EventArgs e)
@@ -82,27 +132,27 @@ namespace edytApp
 
         private void cutToolStripButton_Click(object sender, EventArgs e)
         {
-            fastColoredTextBox.Cut();
+            GetFCTB().Cut();
         }
 
         private void copyToolStripButton_Click(object sender, EventArgs e)
         {
-            fastColoredTextBox.Copy();
+            GetFCTB().Copy();
         }
 
         private void pasteToolStripButton_Click(object sender, EventArgs e)
         {
-            fastColoredTextBox.Paste();
+            GetFCTB().Paste();
         }
 
         private void undoToolStripButton_Click(object sender, EventArgs e)
         {
-            fastColoredTextBox.Undo();
+            GetFCTB().Undo();
         }
 
         private void redoToolStripButton_Click(object sender, EventArgs e)
         {
-            fastColoredTextBox.Redo();
+            GetFCTB().Redo();
         }
 
         private void helpToolStripButton_Click(object sender, EventArgs e)
@@ -226,23 +276,23 @@ namespace edytApp
             FontDialog fd = new FontDialog();
             if (fd.ShowDialog() == DialogResult.OK)
             {
-                fastColoredTextBox.Font = fd.Font;
+                GetFCTB().Font = fd.Font;
             }
         }
 
         private void findToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fastColoredTextBox.ShowFindDialog();
+            GetFCTB().ShowFindDialog();
         }
 
         private void replaceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fastColoredTextBox.ShowReplaceDialog();
+            GetFCTB().ShowReplaceDialog();
         }
 
         private void goToToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fastColoredTextBox.ShowGoToDialog();
+            GetFCTB().ShowGoToDialog();
         }
 
         private void runToolStripMenuItem_Click(object sender, EventArgs e)
@@ -279,9 +329,12 @@ namespace edytApp
             if (of.ShowDialog() == DialogResult.OK)
             {
                 StreamReader sr = new StreamReader(of.FileName);
-                fastColoredTextBox.Text = sr.ReadToEnd();
-                this.Text = of.FileName + " - Edyt";
-                currentFile = of.FileName;
+                TabPage tp = new TabPage(Path.GetFileName(of.FileName));
+                FastColoredTextBox fctb = new FastColoredTextBox();                
+                fctb.Dock = DockStyle.Fill;
+                tp.Controls.Add(fctb);
+                tabControl.TabPages.Add(tp);
+                fctb.Text = sr.ReadToEnd();   
                 isSaved = true;
                 sr.Close();
             }
@@ -312,10 +365,9 @@ namespace edytApp
             if (sf.ShowDialog() == DialogResult.OK)
             { 
                 StreamWriter sw = new StreamWriter(sf.FileName);
-                sw.Write(fastColoredTextBox.Text);
+                tabControl.SelectedTab.Text = Path.GetFileName(sf.FileName);
+                sw.Write(GetFCTB().Text);
                 sw.Close();
-                this.Text = sf.FileName + " - Edyt";
-                currentFile = sf.FileName;
                 isSaved = true;
             }
         }
@@ -364,12 +416,12 @@ namespace edytApp
         {
             if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.HTML)
             {
-                codePreview h = new codePreview(fastColoredTextBox.Text);
+                codePreview h = new codePreview(GetFCTB().Text);
                 h.Show();
             }
             else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.PHP)
             {
-                codePreview p = new codePreview(fastColoredTextBox.Text);
+                codePreview p = new codePreview(GetFCTB().Text);
                 p.Show();
             }
             else if (fastColoredTextBox.Language == FastColoredTextBoxNS.Language.CSharp)
@@ -457,55 +509,55 @@ namespace edytApp
 
         private void cSharp()
         {
-            fastColoredTextBox.Language = FastColoredTextBoxNS.Language.CSharp;
+            GetFCTB().Language = FastColoredTextBoxNS.Language.CSharp;
             LanguageCheck();
         }
 
         private void visualBasic()
         {
-            fastColoredTextBox.Language = FastColoredTextBoxNS.Language.VB;
+            GetFCTB().Language = FastColoredTextBoxNS.Language.VB;
             LanguageCheck();
         }
 
         private void javaScript()
         {
-            fastColoredTextBox.Language = FastColoredTextBoxNS.Language.JS;
+            GetFCTB().Language = FastColoredTextBoxNS.Language.JS;
             LanguageCheck();
         }
 
         private void html()
         {
-            fastColoredTextBox.Language = FastColoredTextBoxNS.Language.HTML;
+            GetFCTB().Language = FastColoredTextBoxNS.Language.HTML;
             LanguageCheck();
         }
 
         private void php()
         {
-            fastColoredTextBox.Language = FastColoredTextBoxNS.Language.PHP;
+            GetFCTB().Language = FastColoredTextBoxNS.Language.PHP;
             LanguageCheck();
         }
 
         private void xml()
         {
-            fastColoredTextBox.Language = FastColoredTextBoxNS.Language.XML;
+            GetFCTB().Language = FastColoredTextBoxNS.Language.XML;
             LanguageCheck();
         }
 
         private void lua()
         {
-            fastColoredTextBox.Language = FastColoredTextBoxNS.Language.Lua;
+            GetFCTB().Language = FastColoredTextBoxNS.Language.Lua;
             LanguageCheck();
         }
 
         private void sql()
         {
-            fastColoredTextBox.Language = FastColoredTextBoxNS.Language.SQL;
+            GetFCTB().Language = FastColoredTextBoxNS.Language.SQL;
             LanguageCheck();
         }
 
         private void custom()
         {
-            fastColoredTextBox.Language = FastColoredTextBoxNS.Language.Custom;
+            GetFCTB().Language = FastColoredTextBoxNS.Language.Custom;
             LanguageCheck();
         }
 
@@ -577,6 +629,11 @@ namespace edytApp
                 if (MessageBox.Show("You have unsaved changes, discard file?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.Cancel)
                     e.Cancel = true;
             }
+        }
+
+        private void renameTabToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string promptValue = Prompt.ShowDialog("Rename Selected Tab", "New Name:");
         }
     }
 }

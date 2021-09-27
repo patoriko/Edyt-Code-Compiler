@@ -121,11 +121,15 @@
     <Content Include="Resources\Data\themes.xml" />
     <Content Include="Resources\Icons\browser.ico" />
     <Content Include="Resources\Icons\cancel.ico" />
+    <Content Include="Resources\Icons\closeAllTabs.ico" />
+    <Content Include="Resources\Icons\closeTab.ico" />
     <Content Include="Resources\Icons\copy.ico" />
     <Content Include="Resources\Icons\cut.ico" />
+    <Content Include="Resources\Icons\documentMap.ico" />
     <Content Include="Resources\Icons\help.ico" />
     <Content Include="logo.ico" />
     <Content Include="Resources\Icons\create.ico" />
+    <Content Include="Resources\Icons\language.ico" />
     <Content Include="Resources\Icons\open.ico" />
     <Content Include="Resources\Icons\paste.ico" />
     <Content Include="Resources\Icons\preview.ico" />
