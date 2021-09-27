@@ -68,6 +68,8 @@
             this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.replaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.goToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
+            this.dataBrowserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.runToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -104,8 +106,6 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.springLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.languageLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.fastColoredTextBox = new FastColoredTextBoxNS.FastColoredTextBox();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addTabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -117,9 +117,6 @@
             this.toolStrip.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fastColoredTextBox)).BeginInit();
-            this.tabControl.SuspendLayout();
             this.tabContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -308,7 +305,9 @@
             this.toolStripMenuItem3,
             this.findToolStripMenuItem,
             this.replaceToolStripMenuItem,
-            this.goToToolStripMenuItem});
+            this.goToToolStripMenuItem,
+            this.toolStripMenuItem5,
+            this.dataBrowserToolStripMenuItem});
             this.toolsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(52, 23);
@@ -341,14 +340,12 @@
             this.lightThemeToolStripMenuItem.Name = "lightThemeToolStripMenuItem";
             this.lightThemeToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.lightThemeToolStripMenuItem.Text = "Light Theme";
-            this.lightThemeToolStripMenuItem.Click += new System.EventHandler(this.lightThemeToolStripMenuItem_Click);
             // 
             // darkThemeToolStripMenuItem
             // 
             this.darkThemeToolStripMenuItem.Name = "darkThemeToolStripMenuItem";
             this.darkThemeToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.darkThemeToolStripMenuItem.Text = "Dark Theme";
-            this.darkThemeToolStripMenuItem.Click += new System.EventHandler(this.darkThemeToolStripMenuItem_Click);
             // 
             // fontToolStripMenuItem
             // 
@@ -481,6 +478,19 @@
             this.goToToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.goToToolStripMenuItem.Text = "Go to...";
             this.goToToolStripMenuItem.Click += new System.EventHandler(this.goToToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(157, 6);
+            // 
+            // dataBrowserToolStripMenuItem
+            // 
+            this.dataBrowserToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dataBrowserToolStripMenuItem.Name = "dataBrowserToolStripMenuItem";
+            this.dataBrowserToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.dataBrowserToolStripMenuItem.Text = "Data Browser";
+            this.dataBrowserToolStripMenuItem.Click += new System.EventHandler(this.dataBrowserToolStripMenuItem_Click);
             // 
             // runToolStripMenuItem
             // 
@@ -809,72 +819,17 @@
             this.languageLabel.Size = new System.Drawing.Size(102, 19);
             this.languageLabel.Text = "Custom";
             // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.fastColoredTextBox);
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1256, 576);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "New File";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // fastColoredTextBox
-            // 
-            this.fastColoredTextBox.AutoCompleteBrackets = true;
-            this.fastColoredTextBox.AutoCompleteBracketsList = new char[] {
-        '(',
-        ')',
-        '{',
-        '}',
-        '[',
-        ']',
-        '\"',
-        '\"',
-        '\'',
-        '\''};
-            this.fastColoredTextBox.AutoIndentCharsPatterns = "\r\n^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>[^;]+);\r\n^\\s*(case|default)\\s*[^:]" +
-    "*(?<range>:)\\s*(?<range>[^;]+);\r\n";
-            this.fastColoredTextBox.AutoScrollMinSize = new System.Drawing.Size(0, 19);
-            this.fastColoredTextBox.BackBrush = null;
-            this.fastColoredTextBox.BracketsHighlightStrategy = FastColoredTextBoxNS.BracketsHighlightStrategy.Strategy2;
-            this.fastColoredTextBox.CharHeight = 19;
-            this.fastColoredTextBox.CharWidth = 9;
-            this.fastColoredTextBox.ContextMenuStrip = this.contextMenuStrip;
-            this.fastColoredTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.fastColoredTextBox.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.fastColoredTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fastColoredTextBox.Font = new System.Drawing.Font("Cascadia Code", 12F);
-            this.fastColoredTextBox.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.fastColoredTextBox.IndentBackColor = System.Drawing.SystemColors.Control;
-            this.fastColoredTextBox.IsReplaceMode = false;
-            this.fastColoredTextBox.LeftBracket = '(';
-            this.fastColoredTextBox.LeftBracket2 = '{';
-            this.fastColoredTextBox.LineNumberColor = System.Drawing.SystemColors.ControlDark;
-            this.fastColoredTextBox.Location = new System.Drawing.Point(3, 3);
-            this.fastColoredTextBox.Name = "fastColoredTextBox";
-            this.fastColoredTextBox.Paddings = new System.Windows.Forms.Padding(0);
-            this.fastColoredTextBox.RightBracket = ')';
-            this.fastColoredTextBox.RightBracket2 = '}';
-            this.fastColoredTextBox.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
-            this.fastColoredTextBox.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("fastColoredTextBox.ServiceColors")));
-            this.fastColoredTextBox.Size = new System.Drawing.Size(1250, 570);
-            this.fastColoredTextBox.TabIndex = 4;
-            this.fastColoredTextBox.WordWrap = true;
-            this.fastColoredTextBox.Zoom = 100;
-            this.fastColoredTextBox.TextChanged += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.fastColoredTextBox_TextChanged);
-            // 
             // tabControl
             // 
             this.tabControl.ContextMenuStrip = this.tabContextMenuStrip;
-            this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.tabControl.HotTrack = true;
             this.tabControl.Location = new System.Drawing.Point(0, 54);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(1264, 604);
+            this.tabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl.TabIndex = 5;
             // 
             // tabContextMenuStrip
@@ -933,7 +888,6 @@
             this.Name = "edyt";
             this.Text = "Edyt Code";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.edyt_FormClosing);
-            this.Load += new System.EventHandler(this.edyt_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.toolStrip.ResumeLayout(false);
@@ -941,9 +895,6 @@
             this.contextMenuStrip.ResumeLayout(false);
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.fastColoredTextBox)).EndInit();
-            this.tabControl.ResumeLayout(false);
             this.tabContextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1024,8 +975,6 @@
         private System.Windows.Forms.ToolStripMenuItem customToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel springLabel;
         private System.Windows.Forms.ToolStripStatusLabel languageLabel;
-        private System.Windows.Forms.TabPage tabPage1;
-        public FastColoredTextBoxNS.FastColoredTextBox fastColoredTextBox;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.ToolStripButton closeToolStripMenu;
         private System.Windows.Forms.ToolStripButton closeAllToolStripButton;
@@ -1035,6 +984,8 @@
         private System.Windows.Forms.ToolStripMenuItem closeAllTabsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem renameTabToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem dataBrowserToolStripMenuItem;
     }
 }
 

@@ -1,7 +1,6 @@
-﻿
-namespace edytApp
+﻿namespace edytApp
 {
-    partial class codePreview
+    partial class dataBrowser
     {
         /// <summary>
         /// Required designer variable.
@@ -30,8 +29,7 @@ namespace edytApp
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(codePreview));
-            this.webBrowser = new System.Windows.Forms.WebBrowser();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(dataBrowser));
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inspectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,19 +40,11 @@ namespace edytApp
             this.printButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.helpButton = new System.Windows.Forms.ToolStripButton();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // webBrowser
-            // 
-            this.webBrowser.ContextMenuStrip = this.contextMenuStrip;
-            this.webBrowser.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.webBrowser.Location = new System.Drawing.Point(0, 28);
-            this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser.Name = "webBrowser";
-            this.webBrowser.Size = new System.Drawing.Size(1264, 653);
-            this.webBrowser.TabIndex = 0;
             // 
             // contextMenuStrip
             // 
@@ -62,21 +52,17 @@ namespace edytApp
             this.refreshToolStripMenuItem,
             this.inspectToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(114, 48);
+            resources.ApplyResources(this.contextMenuStrip, "contextMenuStrip");
             // 
             // refreshToolStripMenuItem
             // 
             this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
-            this.refreshToolStripMenuItem.Text = "Refresh";
-            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
+            resources.ApplyResources(this.refreshToolStripMenuItem, "refreshToolStripMenuItem");
             // 
             // inspectToolStripMenuItem
             // 
             this.inspectToolStripMenuItem.Name = "inspectToolStripMenuItem";
-            this.inspectToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
-            this.inspectToolStripMenuItem.Text = "Inspect";
-            this.inspectToolStripMenuItem.Click += new System.EventHandler(this.inspectToolStripMenuItem_Click);
+            resources.ApplyResources(this.inspectToolStripMenuItem, "inspectToolStripMenuItem");
             // 
             // toolStrip
             // 
@@ -88,99 +74,88 @@ namespace edytApp
             this.printButton,
             this.toolStripSeparator1,
             this.helpButton});
-            this.toolStrip.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.toolStrip, "toolStrip");
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(1264, 25);
-            this.toolStrip.TabIndex = 2;
-            this.toolStrip.Text = "toolStrip";
             // 
             // refreshButton
             // 
             this.refreshButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.refreshButton.Image = global::edytApp.Properties.Resources.refresh;
-            this.refreshButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            resources.ApplyResources(this.refreshButton, "refreshButton");
             this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(23, 22);
-            this.refreshButton.Text = "&Refresh";
             this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
             // openButton
             // 
             this.openButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.openButton.Image = global::edytApp.Properties.Resources.open;
-            this.openButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            resources.ApplyResources(this.openButton, "openButton");
             this.openButton.Name = "openButton";
-            this.openButton.Size = new System.Drawing.Size(23, 22);
-            this.openButton.Text = "&Open";
-            this.openButton.Click += new System.EventHandler(this.openToolStripButton_Click);
+            this.openButton.Click += new System.EventHandler(this.openButton_Click);
             // 
             // browserButton
             // 
             this.browserButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.browserButton.Image = global::edytApp.Properties.Resources.browser;
-            this.browserButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            resources.ApplyResources(this.browserButton, "browserButton");
             this.browserButton.Name = "browserButton";
-            this.browserButton.Size = new System.Drawing.Size(23, 22);
-            this.browserButton.Text = "&Browser";
             this.browserButton.Click += new System.EventHandler(this.browserButton_Click);
             // 
             // printButton
             // 
             this.printButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.printButton.Image = global::edytApp.Properties.Resources.print;
-            this.printButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            resources.ApplyResources(this.printButton, "printButton");
             this.printButton.Name = "printButton";
-            this.printButton.Size = new System.Drawing.Size(23, 22);
-            this.printButton.Text = "&Print";
-            this.printButton.Click += new System.EventHandler(this.printToolStripButton_Click);
+            this.printButton.Click += new System.EventHandler(this.printButton_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
             // helpButton
             // 
             this.helpButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.helpButton.Image = global::edytApp.Properties.Resources.help;
-            this.helpButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            resources.ApplyResources(this.helpButton, "helpButton");
             this.helpButton.Name = "helpButton";
-            this.helpButton.Size = new System.Drawing.Size(23, 22);
-            this.helpButton.Text = "He&lp";
-            this.helpButton.Click += new System.EventHandler(this.helpToolStripButton_Click);
+            this.helpButton.Click += new System.EventHandler(this.helpButton_Click);
             // 
-            // codePreview
+            // dataGridView1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            resources.ApplyResources(this.dataGridView1, "dataGridView1");
+            this.dataGridView1.Name = "dataGridView1";
+            // 
+            // dataBrowser
+            // 
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip);
-            this.Controls.Add(this.webBrowser);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "codePreview";
-            this.Text = "Web Preview - Edyt";
+            this.Name = "dataBrowser";
             this.contextMenuStrip.ResumeLayout(false);
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.WebBrowser webBrowser;
-        private System.Windows.Forms.ToolStrip toolStrip;
-        private System.Windows.Forms.ToolStripButton helpButton;
-        private System.Windows.Forms.ToolStripButton refreshButton;
-        private System.Windows.Forms.ToolStripButton openButton;
-        private System.Windows.Forms.ToolStripButton printButton;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton browserButton;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem inspectToolStripMenuItem;
+        private System.Windows.Forms.ToolStrip toolStrip;
+        private System.Windows.Forms.ToolStripButton refreshButton;
+        private System.Windows.Forms.ToolStripButton openButton;
+        private System.Windows.Forms.ToolStripButton browserButton;
+        private System.Windows.Forms.ToolStripButton printButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton helpButton;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

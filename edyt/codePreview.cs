@@ -38,11 +38,6 @@ namespace edytApp
             System.Diagnostics.Process.Start("https://github.com/patoriko/Edyt-Code-Compiler");
         }
 
-        private void cancelButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Error - Not Added Yet");
